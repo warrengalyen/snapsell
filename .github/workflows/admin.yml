@@ -11,4 +11,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          build: cd snapsell-admin && npm run build
+          build: npm run --prefix snapsell-admin build
+          start: npm run --prefix snapsell-admin dev
