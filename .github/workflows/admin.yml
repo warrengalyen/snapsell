@@ -1,5 +1,5 @@
 name: Admin end-to-end tests
-on: pull_request
+on: [pull_request, push]
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
