@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import { PropsWithChildren } from 'react';
-import { Toaster } from 'react-hot-toast';
 
-export default function AdminLayout({
-                                        children,
-                                        title,
-                                    }: PropsWithChildren<{ title: string }>) {
+export default function MainLayout({
+                                       children,
+                                       title,
+                                   }: PropsWithChildren<{ title: string }>) {
     return (
         <>
             <Head>
@@ -14,7 +13,6 @@ export default function AdminLayout({
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Toaster />
             {children}
         </>
     );
