@@ -9,10 +9,10 @@ function Editor() {
     )
 }
 
-
+// eslint-disable-next-line react/display-name
 export default function() {
     return (
-        <AdminLayout>
+        <AdminLayout title="Editor">
             <Editor />
         </AdminLayout>
     )

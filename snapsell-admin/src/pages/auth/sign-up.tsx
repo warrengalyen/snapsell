@@ -1,4 +1,4 @@
-import AuthLayout from '@/layouts/authLayout'
+import AuthLayout from '@/layouts/AuthLayout'
 
 function SignUp() {
     return (
@@ -8,10 +8,10 @@ function SignUp() {
     )
 }
 
-
+// eslint-disable-next-line react/display-name
 export default function() {
     return (
-        <AuthLayout>
+        <AuthLayout title="Sign Up">
             <SignUp />
         </AuthLayout>
     )

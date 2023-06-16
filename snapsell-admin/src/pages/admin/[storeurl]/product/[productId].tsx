@@ -9,10 +9,10 @@ function ProductDetail() {
     )
 }
 
-
+// eslint-disable-next-line react/display-name
 export default function() {
     return (
-        <AdminLayout>
+        <AdminLayout title="Product details">
             <ProductDetail />
         </AdminLayout>
     )

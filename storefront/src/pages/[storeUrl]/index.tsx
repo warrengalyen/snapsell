@@ -8,7 +8,7 @@ function StoreHome() {
   );
 }
 
-
+// eslint-disable-next-line react/display-name
 export default function() {
   return (
     <MainLayout title='name'>
