@@ -1,19 +1,29 @@
 {
   "name": "snapsell",
   "version": "0.0.1",
-  "dependencies": {
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-select": "^1.2.2",
-    "add": "^2.0.6",
-    "remove": "^0.1.5"
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "dotenv -- turbo dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0"
+    "cypress": "^12.8.1",
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "turbo": "latest"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "dotenv-cli": "^7.1.0"
+  },
+  "packageManager": "npm@9.5.0"
 }
