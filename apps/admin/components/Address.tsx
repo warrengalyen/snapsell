@@ -5,11 +5,12 @@ type Props = {
   secondLine: string;
   city: string;
   state: string;
+  state: string;
   postcode: string;
   country: string;
 };
 
-export default function Address({ firstName, lastName, firstLine, secondLine, city, state, postcode, country }: Props) {
+export default function Address({ firstName, lastName, firstLine, secondLine, city, state, state, postcode, country }: Props) {
   return (
     <>
       <div className="border p-5">
@@ -21,6 +22,7 @@ export default function Address({ firstName, lastName, firstLine, secondLine, ci
         <p>{firstLine}</p>
         <p>{secondLine}</p>
         <p>{city}</p>
+        <p>{state}</p>
         <p>{state}</p>
         <p className="uppercase">{postcode}</p>
         <p className="uppercase">{country}</p>
