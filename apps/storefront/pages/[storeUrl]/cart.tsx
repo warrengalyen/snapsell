@@ -34,7 +34,7 @@ function Cart() {
             <div className="flex justify-between items-center mb-2">
               <HeadingText size="h4">Order Total</HeadingText>
               {/* @TODO Change to dynamic value */}
-              <HeadingText size="h4">$100</HeadingText>
+              <HeadingText size="h4">$200</HeadingText>
             </div>
             {/* @TODO Change to dynamic value */}
             <p>Total items: 2</p>
