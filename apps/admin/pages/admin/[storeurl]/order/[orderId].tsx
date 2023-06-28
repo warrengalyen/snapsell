@@ -120,7 +120,6 @@ function OrderDetail() {
               secondLine="Unit B"
               city="Modesto"
               state="CA"
-              state="Stanislaus"
               country="USA"
               postcode="95355"
             />
@@ -133,7 +132,6 @@ function OrderDetail() {
               secondLine=""
               city="Los Angeles"
               state="CA"
-              state="Los Angeles"
               country="USA"
               postcode="90059"
             />
