@@ -43,7 +43,12 @@ export default function ProductGridItem({ product }: { product: Product }) {
         >
           <p className="text-lg">{product.product_name}</p>
         </Link>
-        <p>${product.product_price}</p>
+        <p>
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(product.product_price)}
+        </p>
       </div>
     </div>
   );
