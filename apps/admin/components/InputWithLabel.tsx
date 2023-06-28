@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Label } from './Label';
 
-export function InputWithLabel({
+export default function InputWithLabel({
                                  label,
                                  id,
                                  type,

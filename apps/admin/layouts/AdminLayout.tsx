@@ -68,9 +68,11 @@ export default function AdminLayout({
               );
             })}
           </div>
+          <Link href='/auth/sign-in'>
           <div className="flex flex-col items-center border-t w-full px-3 py-3 text-base  text-red-600">
             Log Out
           </div>
+          </Link>
         </nav>
         <nav
           className={
