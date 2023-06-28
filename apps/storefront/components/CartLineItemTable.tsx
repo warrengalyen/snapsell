@@ -90,9 +90,15 @@ export default function CartLineItemTable({
             <Link
               href={`/${router.query.storeUrl}/product/${lineItem.product_id}/${lineItem.product_name_slug}`}
             >
-              <p>{lineItem.product_name}</p>
+              <p className="w-30 truncate">{lineItem.product_name}</p>
             </Link>
-            <p>${lineItem.product_price}</p>
+            <p>
+              {' '}
+              {new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              }).format(lineItem.product_price)}
+            </p>
             <div className="w-16">
               <InputWithLabel
                 label="Quantity"
