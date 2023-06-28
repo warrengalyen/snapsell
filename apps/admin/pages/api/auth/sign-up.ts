@@ -30,21 +30,22 @@ export default async function createAccount(
 ) {
   try {
     const values = await req.body;
-    console.log({ values });
-    const hashedPassword = bcrypt.hashSync(values.password, 10);
+    let parsedValues = JSON.parse(values);
+    console.log(parsedValues);
+    const hashedPassword = bcrypt.hashSync(parsedValues.password, 10);
     const user = await prisma.user.create({
       data: {
-        user_first_name: values.firstName,
-        user_last_name: values.lastName,
-        user_email: values.email,
+        user_first_name: parsedValues.firstName,
+        user_last_name: parsedValues.lastName,
+        user_email: parsedValues.email,
         password_hash: hashedPassword,
       },
     });
     const store = await prisma.store.create({
       data: {
-        store_url: values.storeURL,
-        store_name: values.storeName,
-        store_owner: user.user_id,
+        store_url: parsedValues.storeURL,
+        store_name: parsedValues.storeName,
+        // store_owner: user.user_id,
         user: {
           connect: {
             user_id: user.user_id,
