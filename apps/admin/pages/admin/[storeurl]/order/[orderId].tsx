@@ -11,8 +11,7 @@ import { GetServerSideProps } from 'next';
 function OrderDetail({ data }: any) {
   // get order data (from server side props)
   const order = JSON.parse(data);
-  console.log(order);
-  console.log(order.friendly_order_number);
+  console.log(data);
   const order_id = order.friendly_order_number;
   const { total_order_cost } = order;
   const { order_details } = order;
@@ -120,7 +119,7 @@ export const getServerSideProps: GetServerSideProps<{ data: any }> = async (
   try {
     const { orderId } = context.query;
     const results = await getOrder(orderId);
-    const data = await JSON.stringify(results);
+    const data = JSON.stringify(results);
     const bill_address_id = JSON.parse(data).bill_address_id;
     const ship_address_id = JSON.parse(data).ship_address_id;
     // const bill_address = await (
