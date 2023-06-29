@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { InputWithLabel } from '../../components/InputWithLabel';
+import InputWithLabel from '../../components/InputWithLabel';
 import AuthLayout from '../../layouts/AuthLayout';
 import Heading from '../../components/Heading';
 import Button from '../../components/Button';
 import Link from 'next/link';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
+import { toast } from 'react-hot-toast';
 
 type formValues = {
   email: string;
@@ -24,19 +25,19 @@ function SignUp() {
       return fetch('/api/auth/sign-up', {
         method: 'POST',
         headers: {
-          'Context-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
     },
     onSuccess: () => {
-      console.log('sign up complete');
+      toast.success('Please Sign in');
     },
   });
   const [formInputs, setFormInputs] = useState({
     email: '',
     storeName: '',
-    storeURL: '(e.g. top-toys)',
+    storeURL: '',
     firstName: '',
     lastName: '',
     password: '',
@@ -52,6 +53,7 @@ function SignUp() {
   function handleSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     createAcc.mutate(formInputs);
+    toast.success('Successfully Signed Up');
     router.push('/auth/sign-in');
   }
 
