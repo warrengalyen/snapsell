@@ -12,40 +12,36 @@ datasource db {
 
 // Necessary for Next auth
 model Account {
-  id                     String             @id @default(cuid())
-  userId                 String             @unique
-  type                   String
-  provider               String
-  providerAccountId      String
-  refresh_token          String?
-  access_token           String?
-  expires_at             Int?
-  token_type             String?
-  scope                  String?
-  id_token               String?
-  session_state          String?
-  user                   User               @relation(fields: [id], references: [user_id], onDelete: Cascade)
-  VerificationToken      VerificationToken? @relation(fields: [verificationTokenToken], references: [token])
-  verificationTokenToken String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [id], references: [user_id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
 model Session {
-  id                     String             @id @default(cuid())
-  sessionToken           String             @unique
-  userId                 String
-  expires                DateTime
-  user                   User               @relation(fields: [userId], references: [user_id], onDelete: Cascade)
-  VerificationToken      VerificationToken? @relation(fields: [verificationTokenToken], references: [token])
-  verificationTokenToken String?
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [user_id], onDelete: Cascade)
 }
 
 model User {
   user_id         String    @id @default(cuid())
   user_first_name String
   user_last_name  String
-  user_email      String
+  user_email      String    @unique
   password_hash   String
   store           Store[]
   created_at      DateTime  @default(now())
@@ -57,26 +53,24 @@ model User {
 
 model VerificationToken {
   identifier String
-  token      String    @unique
+  token      String   @unique
   expires    DateTime
-  Account    Account[]
-  Session    Session[]
 
   @@unique([identifier, token])
 }
 
 model Store {
-  store_id       String @id @default(cuid())
-  user           User?  @relation(fields: [store_owner_id], references: [user_id])
+  store_id       String      @id @default(cuid())
+  user           User?       @relation(fields: [store_owner_id], references: [user_id])
   store_owner_id String
-
-  store_name String
-  store_url  String      @unique
-  orders     Order[]
-  products   Product[]
-  customers  Customer[]
-  storefront Storefront?
-  created_at DateTime    @default(now())
+  store_owner    String
+  store_name     String
+  store_url      String      @unique
+  orders         Order[]
+  products       Product[]
+  customers      Customer[]
+  storefront     Storefront?
+  created_at     DateTime    @default(now())
 }
 
 model Order {
@@ -114,7 +108,6 @@ model Product {
   is_active         Boolean  @default(true)
   product_name_slug String
   created_at        DateTime @default(now())
-  Images            Images[]
 }
 
 model Customer {
@@ -144,7 +137,7 @@ model Address {
   address_last_name  String
   address_line_1     String
   address_line_2     String?
-  state              String
+  state              String?
   city               String
   country            String
   postcode           String

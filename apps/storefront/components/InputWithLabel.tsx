@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
 
-export default function InputWithLabel({
+export function InputWithLabel({
                                  label,
                                  id,
                                  type,
@@ -23,7 +23,7 @@ export default function InputWithLabel({
   [x: string]: any;
 }) {
   return (
-    <div className="grid w-full items-center gap-1.5">
+    <div className="grid w-full max-w-sm items-center gap-1.5">
       <div
         className={`flex w-full ${
           direction === 'row'

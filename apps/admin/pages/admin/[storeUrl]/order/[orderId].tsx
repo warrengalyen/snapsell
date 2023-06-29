@@ -5,7 +5,7 @@ import Card from '../../../../components/Card';
 import Table from '../../../../components/Table';
 import Address from '../../../../components/Address';
 import Link from 'next/link';
-import { getOrder } from '../../../api/order'
+import { getOrder } from '../../../api/order';
 import { getAddress } from '../../../api/address';
 import { getCustomer } from '../../../api/customer';
 import { GetServerSideProps } from 'next';

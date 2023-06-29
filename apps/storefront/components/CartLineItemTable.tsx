@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
 import { CartProduct } from '../pages/[storeUrl]/cart';
-import InputWithLabel from './InputWithLabel';
+import { InputWithLabel } from './InputWithLabel';
 import Loading from './Loading';
 
 const columns = [

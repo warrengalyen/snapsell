@@ -21,7 +21,7 @@ export default async function handler(
     if (storeUrl) {
       res.status(200).json(storeUrl);
     } else {
-      throw new Error('error')
+      throw new Error('error');
     }
   } catch (error) {
     res.status(500).json({ error: true });
