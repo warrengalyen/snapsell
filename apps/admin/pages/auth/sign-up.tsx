@@ -31,7 +31,7 @@ function SignUp() {
       });
     },
     onSuccess: () => {
-      toast.success('Please Sign in');
+      toast.success('Please Sign in',{ position: 'bottom-center' });
     },
   });
   const [formInputs, setFormInputs] = useState({
@@ -183,7 +183,7 @@ function SignUp() {
 
 export default function() {
   return (
-    <AuthLayout title='Sign Up'>
+    <AuthLayout title="Sign Up">
       <SignUp />
     </AuthLayout>
   );

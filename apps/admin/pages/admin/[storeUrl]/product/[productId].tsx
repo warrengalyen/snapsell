@@ -16,31 +16,6 @@ function ProductDetail() {
     sku: '',
     inventory: '',
   });
-  const [isEditing, setIsEditing] = useState(false);
-  const [storeformInputs, setStoreFormInputs] = useState({
-    id: '',
-    storeName: '',
-    supportEmail: '',
-  });
-
-  function edit() {
-    setIsEditing(true);
-  }
-
-  function cancel() {
-    setIsEditing(false);
-  }
-
-  function save() {
-    //tanstack function to send stormFormInputs to db on click save button
-    setIsEditing(false);
-  }
-
-  function getStoreData() {
-    //tanstack query to get store data
-    //if result is not empty {}
-    //setIsEditing(true)
-  }
 
   // checkout Cloudinary interface before devloping file upload
   const [chosenFile, setChosenFile] = useState([]);
@@ -56,15 +31,15 @@ function ProductDetail() {
   }
 
   // in progress
-  // function handleCapture(target) {
-  //   if (target.files) {
-  //     if (target.files.length !== 0) {
-  //       const file = target.files[0];
-  //       const newUrl = URL.createObjectURL(file);
-  //       setImgSource(newUrl);
-  //     }
-  //   }
-  // }
+  function handleCapture(target) {
+    if (target.files) {
+      if (target.files.length !== 0) {
+        const file = target.files[0];
+        const newUrl = URL.createObjectURL(file);
+        setImgSource(newUrl);
+      }
+    }
+  }
 
   return (
     <>
@@ -72,14 +47,12 @@ function ProductDetail() {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-row justify-between h-6">
             <Heading title="T-shirt" type="h2"></Heading>
-            <div className="flex justify-end" >
-              <Button
-                size="sm"
-                appearance="default"
-                type="submit"
-                value="Active/InActive"
-              >
-                Active/Inactive
+            <div>
+              <Button size="default" appearance="default">
+                <Link href="">Cancel</Link>
+              </Button>
+              <Button size="default" appearance="default">
+                Save
               </Button>
             </div>
           </div>
@@ -97,10 +70,19 @@ function ProductDetail() {
                 style={{ width: '100%' }}
               />
             </div>
+            {/* <label htmlFor="title">
+              <input className="w-full" type="text" id="title" name="title" />
+            </label> */}
           </Card>
-
           <Card>
-            <Textarea  label="description" id="description" state={productInputs} setState={setProductsInputs} direction='row' />
+            {/* <InputWithLabel label="description" id="description" type="textarea" showLabel={true} state={descriptionInput} setState={setDescriptionInput} direction='row' ></InputWithLabel> */}
+            <label htmlFor="description">
+              <textarea
+                className="m-1 flex h-36 w-full rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
+                id="description"
+                name="description"
+              />
+            </label>
           </Card>
 
           <Card>
@@ -129,6 +111,10 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
+              {/* <label className="flex flex-col" htmlFor="det-price">
+                Price
+                <input type="text" id="price" name="price" />
+              </label> */}
 
               <InputWithLabel
                 label="sku"
@@ -139,6 +125,10 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
+              {/* <label className="flex flex-col" htmlFor="sku">
+                SKU
+                <input type="text" id="sku" name="sku" />
+              </label> */}
 
               <InputWithLabel
                 label="inventory"
@@ -149,17 +139,21 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
+              {/* <label className="flex flex-col" htmlFor="inventory"> 
+                Inventory
+                <input type="text" id="inventory" name="inventory" />
+              </label> */}
             </div>
           </Card>
 
-          <div className=' flex justify-end ' >
-            <Button size="default" appearance="default">
-              <Link href="/admin/d/products">Cancel</Link>
+          <Button
+            size="sm"
+            appearance="default"
+            type="submit"
+            value="Active/InActive"
+          >
+            Active/Inactive
             </Button>
-            <Button size="default" appearance="default">
-              Save
-            </Button>
-          </div>
         </form>
       </div>
     </>
