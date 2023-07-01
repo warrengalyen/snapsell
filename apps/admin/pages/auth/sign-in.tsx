@@ -34,7 +34,12 @@ function SignIn() {
               router.push(`/admin/${res}/dashboard`);
             });
         } else {
-          throw new Error('Error signing in');
+          toast.error('Wrong email or password, try again', { position: 'bottom-center' });
+          setIsLoading(false)
+          setFormInputs({
+            user_email: '',
+            password_hash: '',
+          })
         }
       }),
       {

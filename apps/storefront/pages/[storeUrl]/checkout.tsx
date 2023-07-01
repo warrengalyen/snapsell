@@ -292,7 +292,7 @@ export default function Checkout() {
                 Payment
               </p>
               <div className="flex h-[70vh] max-h-[500px] border border-black">
-                This area is where the Stripe payment will go -  remove
+                This area is where the Stripe payment will go - please remove
                 this border when done
               </div>
             </>
@@ -300,7 +300,7 @@ export default function Checkout() {
         </div>
 
         <div className="hidden sm:flex h-[70vh] max-h-[500px] w-[30vw] fixed top-[14vw] left-[67vw] border border-black">
-          This area is where the basket summary will go -
+          hello, this area is where the basket summary will go :0 - please
           remove this border when done
         </div>
       </div>
