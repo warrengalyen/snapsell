@@ -181,9 +181,9 @@ function SignUp() {
   );
 }
 
-export default function () {
+export default function() {
   return (
-    <AuthLayout title="Sign Up">
+    <AuthLayout title='Sign Up'>
       <SignUp />
     </AuthLayout>
   );
