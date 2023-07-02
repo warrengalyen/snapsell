@@ -6,22 +6,81 @@ import InputWithLabel from '../../../../components/InputWithLabel';
 import Textarea from '../../../../components/Textarea';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { Image } from 'next/image';
+import { useMutation, useQuery, UseQueryResult } from '@tanstack/react-query';
 
+interface Product {
+  product_name: string;
+  description: string;
+  product_price: number;
+  product_images: string[];
+  inventory_qty: number;
+  SKU: string;
+}
 
 function ProductDetail() {
+  const router = useRouter();
+  const { productId } = router.query;
+
   const [productInputs, setProductsInputs] = useState({
     item: '',
     description: '',
-    price: '',
+    price: '0',
     sku: '',
-    inventory: '',
+    inventory: '0',
+    images: [] as string[],
   });
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['product'],
+    queryFn: async () => {
+      const resp = await fetch(`/api/product/${productId}`);
+      const product: Product = await resp.json();
+
+      setProductsInputs({
+        item: product.product_name,
+        description: product.description,
+        price: `${product.product_price}`,
+        sku: product.SKU,
+        inventory: `${product.inventory_qty}`,
+        images: product.product_images,
+      });
+
+      return product;
+    },
+    enabled: Boolean(productId),
+  });
+
+  const { mutate } = useMutation((body: Product) =>
+    fetch(`/api/product/${productId}`, {
+      method: 'PUT',
+      headers: { ['Content-type']: 'application/json' },
+      body: JSON.stringify(body),
+    }).then((resp) => resp.json())
+  );
 
   // checkout Cloudinary interface before devloping file upload
   const [chosenFile, setChosenFile] = useState([]);
   const [flag, setFlag] = useState(false);
 
-  function handleSubmit() {}
+  function handleSubmit(event: SubmitEvent) {
+    event.preventDefault();
+
+    try {
+      const body = {
+        product_name: productInputs.item,
+        description: productInputs.description,
+        product_price: Number(productInputs.price),
+        SKU: productInputs.sku,
+        inventory_qty: Number(productInputs.inventory),
+        product_images: productInputs.images,
+      };
+      mutate(body);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function handleImageSubmit() {}
 
@@ -31,15 +90,15 @@ function ProductDetail() {
   }
 
   // in progress
-  function handleCapture(target) {
-    if (target.files) {
-      if (target.files.length !== 0) {
-        const file = target.files[0];
-        const newUrl = URL.createObjectURL(file);
-        setImgSource(newUrl);
-      }
-    }
-  }
+  // function handleCapture(target) {
+  //   if (target.files) {
+  //     if (target.files.length !== 0) {
+  //       const file = target.files[0];
+  //       const newUrl = URL.createObjectURL(file);
+  //       setImgSource(newUrl);
+  //     }
+  //   }
+  // }
 
   return (
     <>
@@ -47,12 +106,14 @@ function ProductDetail() {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-row justify-between h-6">
             <Heading title="T-shirt" type="h2"></Heading>
-            <div>
-              <Button size="default" appearance="default">
-                <Link href="">Cancel</Link>
-              </Button>
-              <Button size="default" appearance="default">
-                Save
+            <div className="flex justify-end">
+              <Button
+                size="sm"
+                appearance="default"
+                type="submit"
+                value="Active/InActive"
+              >
+                Active/Inactive
               </Button>
             </div>
           </div>
@@ -70,24 +131,24 @@ function ProductDetail() {
                 style={{ width: '100%' }}
               />
             </div>
-            {/* <label htmlFor="title">
-              <input className="w-full" type="text" id="title" name="title" />
-            </label> */}
           </Card>
+
           <Card>
-            {/* <InputWithLabel label="description" id="description" type="textarea" showLabel={true} state={descriptionInput} setState={setDescriptionInput} direction='row' ></InputWithLabel> */}
-            <label htmlFor="description">
-              <textarea
-                className="m-1 flex h-36 w-full rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
-                id="description"
-                name="description"
-              />
-            </label>
+            <Textarea
+              label="description"
+              id="description"
+              state={productInputs}
+              setState={setProductsInputs}
+              direction="row"
+            />
           </Card>
 
           <Card>
             <div className="flex flex-col justify-between h-36">
               <div className="h-20">images</div>
+              {/* {productInputs.images.map((src) => (
+                <img key={src} src={src} /> // use nextjs image
+              ))} */}
 
               <label className="flex flex-row justify-end " htmlFor="upload">
                 <input
@@ -111,10 +172,6 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
-              {/* <label className="flex flex-col" htmlFor="det-price">
-                Price
-                <input type="text" id="price" name="price" />
-              </label> */}
 
               <InputWithLabel
                 label="sku"
@@ -125,10 +182,6 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
-              {/* <label className="flex flex-col" htmlFor="sku">
-                SKU
-                <input type="text" id="sku" name="sku" />
-              </label> */}
 
               <InputWithLabel
                 label="inventory"
@@ -139,21 +192,17 @@ function ProductDetail() {
                 setState={setProductsInputs}
                 direction="column"
               ></InputWithLabel>
-              {/* <label className="flex flex-col" htmlFor="inventory"> 
-                Inventory
-                <input type="text" id="inventory" name="inventory" />
-              </label> */}
             </div>
           </Card>
 
-          <Button
-            size="sm"
-            appearance="default"
-            type="submit"
-            value="Active/InActive"
-          >
-            Active/Inactive
+          <div className=" flex justify-end ">
+            <Button size="default" appearance="default">
+              <Link href="/admin/d/products">Cancel</Link>
             </Button>
+            <Button size="default" appearance="default" type="submit">
+              Save
+            </Button>
+          </div>
         </form>
       </div>
     </>
