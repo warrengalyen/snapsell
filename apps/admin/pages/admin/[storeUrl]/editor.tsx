@@ -4,43 +4,15 @@ import Heading from '../../../components/Heading';
 import InputWithLabel  from '../../../components/InputWithLabel';
 import Textarea from '../../../components/Textarea';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
-
-type StoreformInputs = {
-  id: string;
-  storeName: string;
-  storeDescription: string | null;
-  supportEmail: string | null;
-};
+import FileUpload from '../../../components/FileUpload';
 
 function Editor() {
-  const router = useRouter();
-  const storeUrl = router.query.storeUrl;
-
   const [isEditing, setIsEditing] = useState(false);
-  const [storeformInputs, setStoreFormInputs] = useState<
-    Record<string, string>
-  >({
+  const [storeformInputs, setStoreFormInputs] = useState({
     id: '',
     storeName: '',
-    storeDescription: '',
     supportEmail: '',
   });
-
-  const { data: storeform }: UseQueryResult<Record<string, string>> = useQuery({
-    queryKey: ['storeForm'],
-    queryFn: () => fetch(`/api/editor/${storeUrl}`).then((res) => res.json()),
-    enabled: !!router.isReady,
-    initialData: {},
-  });
-
-  useEffect(() => {
-    setStoreFormInputs(storeform);
-    // console.log(
-    //   'storeformInput inside useEffect:' + JSON.stringify(storeformInputs)
-    // );
-  }, [storeformInputs, storeform]);
 
   function edit() {
     setIsEditing(true);
@@ -52,7 +24,6 @@ function Editor() {
 
   function save() {
     //tanstack function to send stormFormInputs to db on click save button
-
     setIsEditing(false);
   }
 
@@ -82,14 +53,12 @@ function Editor() {
           </div>
         </div>
         <div className="flex flex-col justify-around items-start h-3/5 ">
+          <div className="flex flex-row w-full">Store Name: My Store Name</div>
           <div className="flex flex-row w-full">
-            Store Name: {storeformInputs.storeName}
+            Support Email: MyEmail@email.com
           </div>
           <div className="flex flex-row w-full">
-            Support Email: {storeformInputs.supportEmail}
-          </div>
-          <div className="flex flex-row w-full">
-            Description: {storeformInputs.storeDescription}
+            Description: This is my store
           </div>
         </div>
       </div>
@@ -125,7 +94,7 @@ function Editor() {
           <div className="flex flex-row w-full">
             <InputWithLabel
               label="Store Name"
-              id="storeName"
+              id="store name"
               type="text"
               state={storeformInputs}
               showLabel={true}
@@ -136,10 +105,10 @@ function Editor() {
           <div className="flex flex-row w-full">
             <InputWithLabel
               label="Support Email"
-              id="supportEmail"
-              type="email"
-              showLabel={true}
+              id="support email"
+              type="text"
               state={storeformInputs}
+              showLabel={true}
               setState={setStoreFormInputs}
               direction="row"
             />
@@ -147,11 +116,12 @@ function Editor() {
           <div className="flex flex-row w-full">
             <Textarea
               label="Description"
-              id="storeDescription"
+              id="description"
               state={storeformInputs}
               setState={setStoreFormInputs}
               direction="row"
             />
+
           </div>
         </div>
       </div>
