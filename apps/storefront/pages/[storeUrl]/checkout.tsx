@@ -123,7 +123,7 @@ export default function Checkout() {
           </div>
           <div className="bg-gray-100 border-gray-200 border-l py-12 px-12 hidden lg:block lg:col-span-2">
             <HeadingText size="h3">Basket Summary</HeadingText>
-            This area is where the basket summary will go -
+            hello, this area is where the basket summary will go :0 - please
             remove this border when done
           </div>
         </div>
