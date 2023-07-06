@@ -4,7 +4,6 @@ import Heading from '../../../components/Heading';
 import InputWithLabel  from '../../../components/InputWithLabel';
 import Textarea from '../../../components/Textarea';
 import { useEffect, useState } from 'react';
-import FileUpload from '../../../components/FileUpload';
 
 function Editor() {
   const [isEditing, setIsEditing] = useState(false);
