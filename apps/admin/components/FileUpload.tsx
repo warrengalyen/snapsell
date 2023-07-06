@@ -24,9 +24,9 @@ export default function FileUpload({ onChangeEvent }:any) {
               })
             }
           >
-            {/* <Button size="lg" appearance="primary" type="button">
+            <Button size="lg" appearance="primary" type="button">
               Choose File to Upload
-            </Button> */}
+            </Button>
           </CldUploadButton>
         </div>
       </div>

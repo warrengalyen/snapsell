@@ -17,7 +17,7 @@ type Product = {
 };
 
 export default function ProductGridItem({ product }: { product: Product }) {
-  const router = useRouter()
+  const router = useRouter();
 
   const [currentImage, setCurrentImage] = useState(product.product_images[0]);
 
@@ -28,8 +28,8 @@ export default function ProductGridItem({ product }: { product: Product }) {
       >
         <div className="relative overflow-hidden md:min-h-[300px] max-h-[300px] flex flex-col items-center justify-center">
           <img
-            src={currentImage.src}
-            alt={currentImage.alt}
+            src={currentImage?.src??'/missing_img.png'}
+            alt={currentImage?.alt??'no image'}
             className="object-cover"
             onMouseEnter={() => {
               if (!product.product_images[1]) return;

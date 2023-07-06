@@ -27,11 +27,10 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-select": "^1.2.1",
-    "dotenv": "^16.0.3",
     "dotenv-cli": "^7.1.0",
     "next-cloudinary": "^4.0.1"
   },
-  "packageManager": "npm@9.5.1",
+  "packageManager": "npm@9.5.0",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

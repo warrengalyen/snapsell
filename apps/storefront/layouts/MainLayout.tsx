@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { PropsWithChildren } from 'react';
 import { Toaster } from 'react-hot-toast';
-import Footer from '../components/Footer';
 import AnnouncementBar from '../components/AnnouncementBar';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 export default function MainLayout({

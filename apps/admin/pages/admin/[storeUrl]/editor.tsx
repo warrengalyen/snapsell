@@ -4,14 +4,52 @@ import Heading from '../../../components/Heading';
 import InputWithLabel  from '../../../components/InputWithLabel';
 import Textarea from '../../../components/Textarea';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
+type StoreformInputs = {
+  id: string;
+  storeName: string;
+  storeDescription: string | null;
+  supportEmail: string | null;
+};
 function Editor() {
+  const router = useRouter();
+  const storeUrl = router.query.storeUrl;
   const [isEditing, setIsEditing] = useState(false);
-  const [storeformInputs, setStoreFormInputs] = useState({
-    id: '',
+  const [storeformInputs, setStoreFormInputs] = useState<
+    Record<string, string>
+  >({
     storeName: '',
+    storeDescription: '',
     supportEmail: '',
   });
+  //////
+  function handleStoreNameChange(e: { target: { value: any } }) {
+    setStoreFormInputs({
+      ...storeformInputs,
+      storeName: e.target.value,
+    });
+  }
+  /////
+  const { data: storeform }: UseQueryResult<Record<string, string>> = useQuery({
+    queryKey: ['storeForm'],
+    queryFn: () => fetch(`/api/editor/${storeUrl}`).then((res) => res.json()),
+    enabled: !!router.isReady,
+    initialData: {},
+  });
+  /** backend what ever null from data set to empty string*/
+  useEffect(() => {
+    if (!storeform.storeName) {
+      return;
+    }
+    setStoreFormInputs({
+      storeName: storeform.storeName ?? '',
+      storeDescription: storeform.storeDescription ?? '',
+      supportEmail: storeform.supportEmail ?? '',
+    });
+    console.log(storeform, 'storeform');
+  }, [storeform]);
 
   function edit() {
     setIsEditing(true);
@@ -52,12 +90,14 @@ function Editor() {
           </div>
         </div>
         <div className="flex flex-col justify-around items-start h-3/5 ">
-          <div className="flex flex-row w-full">Store Name: My Store Name</div>
           <div className="flex flex-row w-full">
-            Support Email: MyEmail@email.com
+            Store Name: {storeformInputs.storeName}
           </div>
           <div className="flex flex-row w-full">
-            Description: This is my store
+            Support Email: {storeformInputs.supportEmail}
+          </div>
+          <div className="flex flex-row w-full">
+            Description: {storeformInputs.storeDescription}
           </div>
         </div>
       </div>
@@ -105,9 +145,9 @@ function Editor() {
             <InputWithLabel
               label="Support Email"
               id="support email"
-              type="text"
-              state={storeformInputs}
+              type="email"
               showLabel={true}
+              state={storeformInputs}
               setState={setStoreFormInputs}
               direction="row"
             />
@@ -115,12 +155,11 @@ function Editor() {
           <div className="flex flex-row w-full">
             <Textarea
               label="Description"
-              id="description"
+              id="storeDescription"
               state={storeformInputs}
               setState={setStoreFormInputs}
               direction="row"
             />
-
           </div>
         </div>
       </div>
