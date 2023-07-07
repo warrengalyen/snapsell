@@ -91,7 +91,16 @@ function Products() {
 
   const [formProducts, setFormProducts] = useState<Record<string, any>[]>([]);
   useEffect(() => {
-    setFormProducts(products);
+    const formattedProducts = products.map((product) => {
+      return {
+        ...product,
+        product_price: new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        }).format(Number(product.product_price)),
+      };
+    });
+    setFormProducts(formattedProducts);
   }, [products]);
 
   return (
@@ -152,7 +161,7 @@ function Products() {
             required
           />
           <InputWithLabel
-            label="Product price"
+            label="Product price($)"
             id="product_price"
             type="number"
             showLabel={true}
