@@ -9,6 +9,7 @@ import CheckoutFormFields from '../../components/CheckoutFormFields';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { CartContext, ProductType } from '../_app';
+import Head from 'next/head';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -76,12 +77,16 @@ export default function Checkout() {
   } as any;
 
   return (
+    <>
+    <Head>
+      <title>Checkout</title>
+    </Head>
     <div className="min-h-screen bg-slate-800 flex flex-col items-center w-full">
       <div className="flex flex-col place-content-center border-b border-gray-200 w-full">
         <div className="flex place-content-center text-white p-6">
           <Logo logoSrc={''} storeName="Demo Store" />
         </div>
-      </div>
+        </div>
       <div className="bg-gray-100 min-h-screen w-full">
         <div className="grid grid-cols-5 h-full">
           <div className="bg-gray-50 lg:col-span-3 col-span-5 min-h-screen">
@@ -95,7 +100,7 @@ export default function Checkout() {
                     onClick={() => setIsOnPaymentScreen(false)}
                   >
                     Back to details
-                  </Button>
+                    </Button>
                 ) : (
                   <Link href={`/${router.query.storeUrl}/cart`}>
                     <Button appearance="link" size="default">
@@ -118,16 +123,17 @@ export default function Checkout() {
                   setBillingInputs={setBillingInputs}
                   handleSubmit={handleSubmit}
                 />
-              )}
+                )}
+              </div>
             </div>
           </div>
           <div className="bg-gray-100 border-gray-200 border-l py-12 px-12 hidden lg:block lg:col-span-2">
             <HeadingText size="h3">Basket Summary</HeadingText>
-            hello, this area is where the basket summary will go :0 - please
+            this area is where the basket summary will go -
             remove this border when done
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
