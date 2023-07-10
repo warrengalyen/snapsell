@@ -32,13 +32,15 @@ export default function ProcessingOrder() {
   if (isError || (router.isReady && !router.query.payment_intent))
     return (
       <p>
-        Sorry, an error occured loading this page. Your order has still been
+        Sorry, an error occurred loading this page. Your order has still been
         processed.
       </p>
     );
 
   if (!isLoading && orderId && router.query.storeUrl) {
-    router.push(`/${router.query.storeUrl}/${orderId}/order-confirmation`);
+    router.push(
+      `/${router.query.storeUrl}/${orderId.order_id}/order-confirmation`
+    );
   }
 
   return <div>Processing...</div>;

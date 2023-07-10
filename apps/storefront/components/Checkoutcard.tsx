@@ -15,12 +15,12 @@ export default function Checkoutcard({
 
   return (
     <div>
-      <div className="grid grid-cols-9 items-center border-b border-gray-200 pb-2 gap-4">
-        <div className="col-span-5">Item</div>
+      <div className="grid grid-cols-11 items-center border-b border-gray-200 pb-2 gap-4">
+        <div className="col-span-7">Item</div>
         <div className="col-span-2">Quantity</div>
         <div className="col-span-2 text-right">Total</div>
       </div>
-      <div className="">
+      <div>
         {lineItems.map((order) => {
           return (
             <div
