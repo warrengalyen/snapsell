@@ -130,7 +130,7 @@ export default function CheckoutFormFields({
             <DropdownSelector
               label="Country*"
               selectId="country"
-              options={[{ id: 'gb', name: 'United States' }]}
+              options={[{ id: 'us', name: 'United States' }]}
             />
           </div>
           <div className="flex flex-col gap-5 sm:flex-row sm:gap-4 mt-4 justify-between mb-6">

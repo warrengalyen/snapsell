@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { useQuery } from '@tanstack/react-query';
 import { getSession } from 'next-auth/react';
-import PrismaStrUrl from '../../../../utils/storeUrl';
+
 
 function OrderDetail({ order }: any) {
   const router = useRouter();
@@ -202,10 +202,7 @@ export const getServerSideProps: GetServerSideProps<{ order: any }> = async (
   context
 ) => {
   const session = await getSession(context);
-  const userId = session?.user.id;
-  const currentStoreUrl = context.query.storeUrl
-  const prismaStoreUrl = await PrismaStrUrl(userId);
-  if (!session || currentStoreUrl !== prismaStoreUrl) {
+  if (!session) {
     return {
       redirect: {
         destination: '/',
