@@ -39,8 +39,9 @@ export default function Footer() {
         <div className="max-w-[1200px] m-auto">
           <p className="text-sm">
             {/* @TODO Insert dynamic email */}
-            <span className="text-bold">Customer Support:</span>{' '}
-            {/* example@example.com */}
+            {storeformEmail.supportEmail !== '' && (
+              <span className="text-bold">Customer Support: </span>
+            )}
             {storeformEmail.supportEmail}
           </p>
         </div>
