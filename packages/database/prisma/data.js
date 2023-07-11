@@ -95,7 +95,7 @@ const storeFronts = [
 
 const products = [
   {
-    product_id: 'product-with-long-details-and-big-numbers',
+    product_id: 'prd-w-lng-dtls-and-big-nums',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: 'SKU-17937494797934',
     product_name:
@@ -109,7 +109,7 @@ const products = [
     product_images: imageData.longTeapotImages,
   },
   {
-    product_id: 'product-with-short-details-and-zeros-no-image',
+    product_id: 'prd-w-sml-dtls-and-0s-no-img',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '',
     product_name: 'potato',
@@ -119,7 +119,7 @@ const products = [
     product_name_slug: 'slug',
   },
   {
-    product_id: 'product-with-negative-inventory-and-price',
+    product_id: 'prd-w-neg-inv-and-price',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '456-997',
     product_name: 'Negative Teapot',
@@ -131,7 +131,7 @@ const products = [
     product_images: imageData.negativeTeapotImages,
   },
   {
-    product_id: 'product1-with-normal-details-one-image',
+    product_id: 'prd1-w-nrml-dtls-1-img',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '868434',
     product_name: 'should we correct lowercase first letter?',
@@ -142,7 +142,7 @@ const products = [
     product_images: imageData.tinyTeapotImages,
   },
   {
-    product_id: 'product2-with-normal-details-one-image',
+    product_id: 'prd2-w-nrml-dtls-1-img',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '4837',
     product_name: 'Quirky Teapot',
@@ -154,7 +154,7 @@ const products = [
     product_images: imageData.quirkyTeapotImages,
   },
   {
-    product_id: 'product1-with-normal-details-two-images',
+    product_id: 'prd1-w-nrml-dtls-2-imgs',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '4H56K-7',
     product_name: 'See-through Teapot',
@@ -166,7 +166,7 @@ const products = [
     product_images: imageData.seeThroughTeapotImages,
   },
   {
-    product_id: 'product2-with-normal-details-two-images',
+    product_id: 'prd2-w-nrml-dtls-2-imgs',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '5454-BGH',
     product_name: 'Blue Teapot',
@@ -178,7 +178,7 @@ const products = [
     product_images: imageData.blueTeapotImages,
   },
   {
-    product_id: 'product-with-normal-details-three-images',
+    product_id: 'prd-w-nrml-dtls-3-imgs',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '43324',
     product_name: 'Green Teapot',
@@ -190,7 +190,7 @@ const products = [
     product_images: imageData.greenTeapotImages,
   },
   {
-    product_id: 'product-with-normal-details-four-images',
+    product_id: 'prd-w-nrml-dtls-4-imgs',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '098789',
     product_name: 'Black Teapot',
@@ -202,7 +202,7 @@ const products = [
     product_images: imageData.blackTeapotImages,
   },
   {
-    product_id: 'product-with-normal-details-five-images',
+    product_id: 'prd-w-nrml-dtls-5-imgs',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '5398789',
     product_name: 'Mega-pot',
@@ -214,7 +214,7 @@ const products = [
     product_images: imageData.megaTeapotImages,
   },
   {
-    product_id: 'product3-with-normal-details-two-images',
+    product_id: 'prd3-w-nrml-dtls-2-imgs',
     store_id: 'store-1-product-with-storefront-but-lacking-detail',
     SKU: '786241',
     product_name: 'Beach Ball',
@@ -226,7 +226,7 @@ const products = [
     product_images: imageData.beachballImages,
   },
   {
-    product_id: 'product4-with-normal-details-two-images',
+    product_id: 'prd4-w-nrml-dtls-2-imgs',
     store_id: 'store-2-products-with-storefront-detail',
     SKU: '7241',
     product_name: 'Instant Sock Collection',
@@ -238,7 +238,7 @@ const products = [
     product_images: imageData.socksImages,
   },
   {
-    product_id: 'product5-with-normal-details-two-images',
+    product_id: 'prd5-w-nrml-dtls-2-imgs',
     store_id: 'store-2-products-with-storefront-detail',
     SKU: '6f241',
     product_name: 'Bulk buy of toys',
@@ -250,7 +250,7 @@ const products = [
     product_images: imageData.toysImages,
   },
   {
-    product_id: 'product6-with-normal-details-two-images',
+    product_id: 'prd6-w-nrml-dtls-2-imgs',
     store_id: 'nice-mvp-store',
     SKU: '89767',
     product_name: 'Toothbrush',
@@ -262,7 +262,7 @@ const products = [
     product_images: imageData.toothbrushImages,
   },
   {
-    product_id: 'product7-with-normal-details-two-images',
+    product_id: 'prd7-w-nrml-dtls-2-imgs',
     store_id: 'nice-mvp-store',
     SKU: '574',
     product_name: 'Cool Dog',
@@ -602,8 +602,6 @@ const orders = [
   },
 ];
 
-
-
 module.exports = {
   users,
   stores,
@@ -613,4 +611,3 @@ module.exports = {
   addresses,
   orders,
 };
-
