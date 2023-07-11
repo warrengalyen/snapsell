@@ -10,8 +10,9 @@ const calculateOrderAmount = (products: any) => {
   return (
     products.reduce((acc: any, curr: any) => {
       return acc + curr.product_price * curr.quantityInCart;
-    }, 0) * 100 // converts to cent
-  );
+    }, 0) * 100
+  ) // converts to cent
+    .toFixed(0);
 };
 
 export default async function handler(

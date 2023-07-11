@@ -224,7 +224,7 @@ export default function CheckoutFormFields({
                 <DropdownSelector
                   label="Country*"
                   selectId="billing_country"
-                  options={[{ id: 'gb', name: 'United States' }]}
+                  options={[{ id: 'us', name: 'United States' }]}
                 />
               </div>
             </>
