@@ -1,14 +1,14 @@
 module.exports = {
   reactStrictMode: true,
   transpilePackages: ['shared-components'],
-  async redirects() {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: '/',
-        destination: 'http://localhost:3001',
-        permanent: true,
-        basePath: false,
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '**/**',
       },
-    ];
+    ],
   },
 };
