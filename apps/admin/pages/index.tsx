@@ -48,7 +48,7 @@ export default function Home() {
         <h2 className="mx-5 sm:mx-10 absolute z-20 top-[25%] xl:top-[30%] sm:text-2xl md:text-3xl lg:text-4xl text-white">
           Probably the finest customizable storefront for your business
         </h2>
-        <h2 className="mx-5 sm:mx-10 absolute z-[70] text-sm top-[70%] xl:top-[60%] sm:text-2xl md:text-3xl lg:text-4xl text-white bg-opacity-50 bg-black p-4 sm:p-10 w-28 sm:w-3/6">
+        <h2 className="mx-5 sm:mx-10 absolute z-[70] text-sm top-[70%] xl:top-[65%] sm:text-2xl md:text-3xl lg:text-4xl text-white bg-opacity-50 bg-black p-4 sm:p-10 w-28 sm:w-3/6">
           Name your store and also set the contact email address!
         </h2>
         <img
