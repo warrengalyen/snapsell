@@ -36,6 +36,7 @@ function Products() {
 
   if (isLoading) return <Loading />;
   if (isError) return <Error />;
+  console.log('PRODUCTS', products)
 
   return (
     <>
