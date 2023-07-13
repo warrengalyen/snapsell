@@ -140,7 +140,7 @@ function ProductPage({ product }: { product: Product }) {
     ) {
       setCurrentImage(product.product_images[0]);
     }
-  }, [product, currentImage]);
+  }, [product, currentImage, router.isReady, router.query.productId]);
 
   if (product && product?.error) return <p>Product not found</p>;
 
