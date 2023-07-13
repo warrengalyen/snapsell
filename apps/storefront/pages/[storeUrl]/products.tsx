@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 import HeadingText from '../../components/HeadingText';
 import ProductGridItem from '../../components/ProductGridItem';
 import MainLayout from '../../layouts/MainLayout';
@@ -18,24 +18,7 @@ type ProductType = {
   inventory_qty: number;
 };
 
-export async function getStaticPaths() {
-  const stores = await prisma.store.findMany({
-    select: {
-      store_url: true,
-    },
-  });
-
-  return {
-    paths: stores.map((store) => ({
-      params: {
-        storeUrl: store.store_url,
-      },
-    })),
-    fallback: true,
-  };
-}
-
-export async function getStaticProps(context: any) {
+export async function getServerSideProps(context: any) {
   try {
     const { storeUrl } = context.params;
 
@@ -53,6 +36,7 @@ export async function getStaticProps(context: any) {
       },
       select: {
         store_id: true,
+        store_name: true
       },
     });
 
@@ -78,23 +62,20 @@ export async function getStaticProps(context: any) {
           ...item,
           product_price: Number(item.product_price),
         })),
+        store: store?.store_name
       },
-      revalidate: 60,
     };
   } catch (error) {
     return {
       props: {
         products: [],
+        store: ''
       },
-      revalidate: 10,
     };
   }
 }
 
 function Products({ products }: { products?: ProductType[] }) {
-  useEffect(() => {
-    return () => toast.dismiss();
-  }, []);
   return (
     <>
       <HeadingText size="h3">Products</HeadingText>
@@ -105,7 +86,7 @@ function Products({ products }: { products?: ProductType[] }) {
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        mollit anim id est laborum.{' '}
       </p>
       {!products || products.length === 0 ? (
         <p className="mt-6">No products listed</p>
@@ -120,9 +101,9 @@ function Products({ products }: { products?: ProductType[] }) {
   );
 }
 
-export default function ({ products }: { products?: ProductType[] }) {
+export default function ({ products, store }: { products?: ProductType[], store:string }) {
   return (
-    <MainLayout title="Products">
+    <MainLayout title={store}>
       <Products products={products} />
     </MainLayout>
   );
