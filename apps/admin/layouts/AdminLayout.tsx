@@ -9,7 +9,8 @@ import { signOut } from 'next-auth/react';
 import Button from '../components/Button';
 import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
-import { redirect } from 'next/dist/server/api-utils';
+import SearchInputs from '../components/SearchInputs';
+import { placeholder } from '@cloudinary/react';
 
 type Store = {
   store_id: string;
@@ -88,6 +89,9 @@ export default function AdminLayout({
               <div className="flex justify-center items-center">SnapSell</div>
             </div>
           </Link>
+          <div className="flex  items-center">
+            <SearchInputs />
+          </div>
           <select
             id="stores"
             onChange={(e) => {
