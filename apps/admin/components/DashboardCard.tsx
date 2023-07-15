@@ -1,4 +1,4 @@
-import { JSXElementConstructor } from "react";
+import { JSXElementConstructor } from 'react';
 
 type Props = {
   title: string;
