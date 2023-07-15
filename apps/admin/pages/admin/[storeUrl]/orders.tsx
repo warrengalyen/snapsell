@@ -11,7 +11,7 @@ export { getServerSideProps };
 function Orders() {
   const router = useRouter();
   const storeUrl = router.query.storeUrl;
-  const { data: orders, isFetching }: UseQueryResult<Record<string, any>[]> =
+  const { data: orders, isFetching }: UseQueryResult<Record<string, string>[]> =
     useQuery({
       queryKey: ['order'],
       queryFn: () => fetch(`/api/orders/${storeUrl}`).then((res) => res.json()),
@@ -19,7 +19,7 @@ function Orders() {
       initialData: [],
     });
 
-  const [formOrders, setFormOrders] = useState<Record<string, any>[]>([]);
+  const [formOrders, setFormOrders] = useState<Record<string, string>[]>([]);
   useEffect(() => {
     const formattedOrder = orders.map((order) => {
       return {
