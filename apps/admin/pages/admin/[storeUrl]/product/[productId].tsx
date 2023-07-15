@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import FileUpload from '../../../../components/FileUpload';
+import LoadingSpinner from '../../../../components/Loading';
 import getServerSideProps from '../../../../utils/authorization';
 export { getServerSideProps };
 
@@ -112,6 +113,13 @@ function ProductDetail() {
       isActive: !prevProductInputs.isActive,
     }));
   }
+
+  if (isLoading)
+    return (
+      <div className="flex justify-center mt-36">
+        <LoadingSpinner />
+      </div>
+    );
 
   return (
     <>
