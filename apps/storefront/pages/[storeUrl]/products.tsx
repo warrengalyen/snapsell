@@ -36,7 +36,7 @@ export async function getServerSideProps(context: any) {
       },
       select: {
         store_id: true,
-        store_name: true
+        store_name: true,
       },
     });
 
@@ -72,26 +72,30 @@ export async function getServerSideProps(context: any) {
           product_price: Number(item.product_price),
         })),
         store: store?.store_name,
-        store_desc: storefront?.store_description
+        store_desc: storefront?.store_description,
       },
     };
   } catch (error) {
     return {
       props: {
         products: [],
-        store: ''
+        store: '',
       },
     };
   }
 }
 
-function Products({ products, store_desc }: { products?: ProductType[], store_desc:string }) {
+function Products({
+  products,
+  store_desc,
+}: {
+  products?: ProductType[];
+  store_desc: string;
+}) {
   return (
     <>
       <HeadingText size="h3">Products</HeadingText>
-      <p className="mt-2 mb-6">
-        {store_desc}
-      </p>
+      <p className="mt-2 mb-6">{store_desc}</p>
       {!products || products.length === 0 ? (
         <p className="mt-6">No products listed</p>
       ) : (
@@ -105,9 +109,17 @@ function Products({ products, store_desc }: { products?: ProductType[], store_de
   );
 }
 
-export default function ({ products, store, store_desc }: { products?: ProductType[], store:string, store_desc:string }) {
+export default function ({
+  products,
+  store,
+  store_desc,
+}: {
+  products?: ProductType[];
+  store: string;
+  store_desc: string;
+}) {
   return (
-    <MainLayout title={store}>
+    <MainLayout title={`Products - ${store}`}>
       <Products products={products} store_desc={store_desc} />
     </MainLayout>
   );

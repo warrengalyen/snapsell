@@ -13,19 +13,25 @@ type Props = {
     heroAlt: string;
     logoUrl: string;
     description: string;
-  }
+  };
+  isLoading: boolean;
+  isError: boolean;
 };
 
-function StoreHome({storeDetails}:Props) {
-
+function StoreHome({ storeDetails, isLoading, isError }: Props) {
   return (
     <>
-      <HeroImageBanner
-        heroImage={storeDetails.heroUrl}
-        alt={storeDetails.heroAlt}
-        heading={storeDetails.name}
-        subheading={storeDetails.description}
-      />
+      {isError ? (
+        <Error />
+      ) : (
+        <HeroImageBanner
+          heroImage={isLoading ? '' : storeDetails.heroUrl}
+          alt={isLoading ? '' : storeDetails.heroAlt}
+          heading={isLoading ? '' : storeDetails.name}
+          subheading={isLoading ? '' : storeDetails.description}
+          isLoading={isLoading}
+        />
+      )}
     </>
   );
 }
@@ -44,12 +50,13 @@ export default function () {
     }
   );
 
-  if (isLoading) return <Loading />;
-  if (isError) return <Error />;
-
   return (
-    <MainLayout title={storeDetails.name}>
-      <StoreHome storeDetails={storeDetails} />
+    <MainLayout title={`${isLoading || isError ? 'Home' : storeDetails.name}`}>
+      <StoreHome
+        storeDetails={storeDetails}
+        isLoading={isLoading}
+        isError={isError}
+      />
     </MainLayout>
   );
 }
