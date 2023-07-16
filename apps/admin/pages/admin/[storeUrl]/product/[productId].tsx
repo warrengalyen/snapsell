@@ -128,7 +128,7 @@ function ProductDetail() {
           <div className="text-red-500">
             <Heading
               title={productInputs.isActive ? '' : 'ITEM DEACTIVATED'}
-              type="h1"
+              type="h2"
             ></Heading>
             <div className='text-red-500' >
               <Heading title={productInputs.isActive ? "" : "ITEM DEACTIVATED"} type="h1"></Heading>
@@ -136,7 +136,7 @@ function ProductDetail() {
             <div className="flex justify-end">
               <Button
                 size="sm"
-                appearance="default"
+                appearance="snapYellow"
                 value="Active/InActive"
                 onClick={handleIsActive}
               >
@@ -145,7 +145,6 @@ function ProductDetail() {
             </div>
           </div>
 
-          <Card>
             <div className="flex flex-row w-full">
               <InputWithLabel
                 label="item"
@@ -158,9 +157,7 @@ function ProductDetail() {
                 style={{ width: '100%' }}
               />
             </div>
-          </Card>
-
-          <Card>
+          <div className='h-40' >
             <Textarea
               label="description"
               id="description"
@@ -168,9 +165,7 @@ function ProductDetail() {
               setState={setProductsInputs}
               direction="column"
             />
-          </Card>
-
-          <Card>
+          </div>
             <div className="flex flex-col justify-between h-36">
               <div className="flex flex-row h-20 gap-3">
                 {productInputs.images.map((img) => (
@@ -183,9 +178,7 @@ function ProductDetail() {
                 <FileUpload id="fileUpload" onChangeEvent={handleImageUpload} />
               </label>
             </div>
-          </Card>
 
-          <Card>
             <div className="flex flex-row gap-3">
               <InputWithLabel
                 label="price($)"
@@ -218,19 +211,18 @@ function ProductDetail() {
                 direction="column"
               ></InputWithLabel>
             </div>
-          </Card>
 
           <div className=" flex justify-end ">
             <Button
               size="default"
-              appearance="default"
+              appearance="snapYellow"
               onClick={() => {
                 router.back();
               }}
             >
               Cancel
             </Button>
-            <Button size="default" appearance="default" type="submit">
+            <Button size="default" appearance="primary" type="submit">
               Save
             </Button>
           </div>
