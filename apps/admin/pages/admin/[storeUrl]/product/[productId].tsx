@@ -166,7 +166,7 @@ function ProductDetail() {
               id="description"
               state={productInputs}
               setState={setProductsInputs}
-              direction="row"
+              direction="column"
             />
           </Card>
 

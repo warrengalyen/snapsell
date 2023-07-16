@@ -10,4 +10,14 @@ module.exports = {
         extend: {},
     },
     plugins: [require('@tailwindcss/forms')],
+    theme: {
+        extend: {
+            colors: {
+                'snap-yellow': '#FDC600',
+                'snap-yellow-hover': '#FDC600A3',
+                'slate-blue': '#67ACCC',
+                'lt-powder-blue': '#BAE6FC',
+            }
+        }
+    }
 };

@@ -13,6 +13,7 @@ const buttonVariants = {
   subtle: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
   ghost: 'bg-transparent hover:bg-slate-100 data-[state=open]:bg-transparent',
   link: 'bg-transparent underline-offset-4 hover:underline text-slate-900  hover:bg-transparent',
+  snapYellow: 'bg-snap-yellow text-black hover:bg-snap-yellow-hover',
 };
 
 const buttonSizes = {
@@ -41,7 +42,8 @@ export default function Button({
     | 'outline'
     | 'subtle'
     | 'ghost'
-    | 'link';
+    | 'link'
+    | 'snapYellow';
   type?: 'button' | 'submit' | 'reset';
   onClick?: MouseEventHandler<HTMLButtonElement>;
   [x: string]: any;

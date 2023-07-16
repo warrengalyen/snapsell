@@ -169,7 +169,7 @@ function Editor() {
           </div>
         </div>
         <div className="grid grid-cols-1 grid-rows-[repeat(5,0.5fr_minmax(1.5fr_auto)] w-[98%] gap-5 gap-x-10 sm:grid-cols-[0.7fr_1.3fr] sm:grid-rows-[0.3fr_0.3fr_0.3fr_1.5fr_2.6fr] p-4 h-full ">
-          <Heading title="Store Name:" type="h3" />
+          <Heading title="Store Name:" type="h4" />
           <div className="">{storeformInputs.storeName}</div>
           <Heading title="Support Email:" type="h3" />
           <div className="">{storeformInputs.supportEmail}</div>
@@ -183,7 +183,7 @@ function Editor() {
           <Heading title="Store Homepage Main Image:" type="h3" />
           <img
             src={storeformInputs.storeHeroImage.src}
-            className="object-contain object-top h-[250px] w-[350px]"
+            className="rounded object-contain object-top h-[250px] w-[350px]"
           ></img>
         </div>
       </div>
