@@ -8,7 +8,7 @@ type StoreformEmail = {
   supportEmail: string | null;
 };
 
-export default function Footer() {
+export default function Footer({ backgroundColor }: { backgroundColor: string }) {
   const router = useRouter();
   const storeUrl = router.query.storeUrl;
 
@@ -35,7 +35,10 @@ export default function Footer() {
   }, [storeEmail]);
   return (
     <>
-      <footer className="border-t border-gray-300 py-8 px-6 bg-gray-800 text-white">
+      <footer
+        className="border-t border-gray-300 py-8 px-6 bg-gray-800 text-white"
+        style={{ backgroundColor: backgroundColor }}
+      >
         <div className="max-w-[1200px] m-auto">
           <p className="text-sm">
             {/* @TODO Insert dynamic email */}
