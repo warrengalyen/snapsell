@@ -1,66 +1,74 @@
-const imageData = require ('./images')
+const imageData = require('./images');
 
 const users = [
-  { user_id: 'user-with-1-store',
+  {
+    user_id: 'user-with-1-store',
     user_first_name: 'Bruce',
     user_last_name: 'Willis',
     user_email: 'bruce@diehard.me',
     password_hash:
       '$2a$10$RUGuvXpVT7iX5QSiqm.hzOXH8fN71hadiXj6gg.HrTDsLb1ZZGomi',
-
   },
-  { user_id: 'user-with-2-stores',
+  {
+    user_id: 'user-with-2-stores',
     user_first_name: 'John',
     user_last_name: 'Mullins',
     user_email: 'johnmullins@jourrapide.com',
     password_hash:
       '$2a$10$yI8wx62xmUs0F0xTxzuvhOUDNI1GJna0y4iWM03z.ZNoHbQJ82AcC',
   },
-  { user_id:'user-with-3-stores',
+  {
+    user_id: 'user-with-3-stores',
     user_first_name: 'Tony',
     user_last_name: 'Stark',
     user_email: 'whatsupdoc@prisma.com',
     password_hash:
       '$2a$10$y.FHYh9TpYy6XOsasS./cej.8W1tG3BKg2D6nA7bVnwrRN095wBcW',
-  }
-]
+  },
+];
 
 const stores = [
-  { store_id: 'store-1-product-with-storefront-but-lacking-detail',
+  {
+    store_id: 'store-1-product-with-storefront-but-lacking-detail',
     store_owner_id: 'user-with-1-store',
     store_name: 'Guns & Ammo',
     store_url: 'yippie-kay-yay',
   },
-  { store_id: 'store-10-products-with-storefront-detail',
+  {
+    store_id: 'store-10-products-with-storefront-detail',
     store_owner_id: 'user-with-2-stores',
     store_name: 'Teapots Galore',
     store_url: 'teapots-galore',
   },
-  { store_id: 'store-no-products-with-storefront-detail',
+  {
+    store_id: 'store-no-products-with-storefront-detail',
     store_owner_id: 'user-with-2-stores',
-    store_name: "Fruit & Veg Goodies",
+    store_name: 'Fruit & Veg Goodies',
     store_url: 'gotta-stay-healthy',
   },
-  { store_id: 'store-2-products-with-storefront-detail',
+  {
+    store_id: 'store-2-products-with-storefront-detail',
     store_owner_id: 'user-with-3-stores',
     store_name: "Tony's Toys & Socks",
     store_url: 'toys-n-socks-bit-weird',
   },
-  { store_id: 'store-6-products-no-storefront-detail-entered',
+  {
+    store_id: 'store-6-products-with-storefront-detail',
     store_owner_id: 'user-with-3-stores',
     store_name: 'Electronics Emporium',
     store_url: 'elec-emp',
   },
-  { store_id: 'nice-mvp-store',
+  {
+    store_id: 'nice-mvp-store',
     store_owner_id: 'user-with-3-stores',
     store_name: 'Toothbrush Central',
     store_url: 'toothbrushes-etc',
   },
 ];
 
-
 const storeFronts = [
-  { storefront_id: 'storefront-with-logo-with-hero-long-desc',
+  {
+    storefront_id: 'storefront-with-logo-with-hero-long-desc',
     store_id: 'store-10-products-with-storefront-detail',
     support_email: 'support@mystore.com',
     store_description:
@@ -73,7 +81,8 @@ const storeFronts = [
       { type: 'saleActive', selected: 'false' },
     ]),
   },
-  { storefront_id: 'storefront-with-logo-with-hero-normal desc',
+  {
+    storefront_id: 'storefront1-with-logo-with-hero-normal desc',
     store_id: 'nice-mvp-store',
     support_email: 'no-emails-please@go-away.co.uk',
     store_description:
@@ -81,19 +90,33 @@ const storeFronts = [
     store_logo: imageData.toothbrushLogo,
     store_hero_image: imageData.toothbrushHero,
   },
-  { storefront_id: 'storefront-with-no-logo-no-hero-no-desc-no-email',
+  {
+    storefront_id: 'storefront-with-no-logo-no-hero-no-desc-no-email',
     store_id: 'store-1-product-with-storefront-but-lacking-detail',
   },
-  { storefront_id: 'storefront-with-logo-no-hero-normal desc',
+  {
+    storefront_id: 'storefront-with-logo-no-hero-normal desc',
     store_id: 'store-2-products-with-storefront-detail',
     support_email: 'i-am@iron.man',
-    store_description: "Well we have two products: toys or socks and that is it - enjoy",
+    store_description:
+      'Well we have two products: toys or socks and that is it - enjoy',
     store_logo: imageData.toysNsocksLogo,
   },
-  { storefront_id: 'storefront-no-logo-with-hero-normal-desc',
+  {
+    storefront_id: 'storefront2-with-logo-with-hero-normal-desc',
+    store_id: 'store-6-products-with-storefront-detail',
+    support_email: 'nothingElectronic@everBreaks.com',
+    store_description:
+      'Quality electronics at bargain prices, consoles, TVs, radios, laptops, premium goods guaranteed!',
+    store_hero_image: imageData.elecEmpHero,
+    store_logo: imageData.elecEmpLogo,
+  },
+  {
+    storefront_id: 'storefront-no-logo-with-hero-normal-desc',
     store_id: 'store-no-products-with-storefront-detail',
     support_email: 'straight-to-trash@outlook.com',
-    store_description: 'An apple a day keeps the doctor away, but too many and the dentist will come calling',
+    store_description:
+      'An apple a day keeps the doctor away, but too many and the dentist will come calling',
     store_hero_image: imageData.fruitNvegHero,
   },
 ];
@@ -107,7 +130,7 @@ const products = [
       'product1 - with a rather long name  just to see how this looks when displayed',
     inventory_qty: 123456,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     product_price: 1234567,
     product_name_slug:
       'product-name-slug-which-is-also-rather-long-is-it-too-long-do-not-know-yet',
@@ -281,33 +304,37 @@ const products = [
 ];
 
 const customers = [
-  { store_id: 'store-10-products-with-storefront-detail',
+  {
+    store_id: 'store-10-products-with-storefront-detail',
     customer_id: 'cust-1-with-normal-name-bill-and-ship-same',
-    customer_first_name: "Timothy",
-    customer_last_name: "Allen",
-    customer_email: "tallen@live.com",
-    phone_number: "970-001-0912"
+    customer_first_name: 'Timothy',
+    customer_last_name: 'Allen',
+    customer_email: 'tallen@live.com',
+    phone_number: '970-001-0912',
   },
-  { store_id: 'nice-mvp-store',
+  {
+    store_id: 'nice-mvp-store',
     customer_id: 'cust-with-long-name-bill-and-ship-different',
-    customer_first_name: "Alexander",
-    customer_last_name: "Turner",
-    customer_email: "alexanderfturner@gmail.com",
-    phone_number: "563-592-5097"
+    customer_first_name: 'Alexander',
+    customer_last_name: 'Turner',
+    customer_email: 'alexanderfturner@gmail.com',
+    phone_number: '563-592-5097',
   },
-  { store_id: 'store-1-product-with-storefront-but-lacking-detail',
+  {
+    store_id: 'store-1-product-with-storefront-but-lacking-detail',
     customer_id: 'cust-2-with-normal-name-bill-and-ship-same',
-    customer_first_name: "Joshua",
-    customer_last_name: "Cook",
-    customer_email: "joshua.a.cook@live.com",
-    phone_number: "513-311-5174"
+    customer_first_name: 'Joshua',
+    customer_last_name: 'Cook',
+    customer_email: 'joshua.a.cook@live.com',
+    phone_number: '513-311-5174',
   },
-  { store_id: 'store-2-products-with-storefront-detail',
+  {
+    store_id: 'store-2-products-with-storefront-detail',
     customer_id:
       'cust-with-double-barrelled-name-bill-and-ship-different-no-phonenumber',
     customer_first_name: 'Rose-Marie',
     customer_last_name: 'Jones-Smith',
-    customer_email: "r.j@rocketmail.com",
+    customer_email: 'r.j@rocketmail.com',
   },
 ];
 
@@ -315,74 +342,74 @@ const addresses = [
   {
     address_id: 'addr-bill-and-ship-(ship)',
     customer_id: 'cust-1-with-normal-name-bill-and-ship-same',
-    "address_first_name": "Jasmine",
-    "address_last_name": "White",
-    "address_line_1": "628 Cedar Lane",
-    "address_line_2": "",
-    "city": "Chefornak",
-    "state": "Alaska",
-    "country": 'United States',
-    "postcode": "99561"
+    address_first_name: 'Jasmine',
+    address_last_name: 'White',
+    address_line_1: '628 Cedar Lane',
+    address_line_2: '',
+    city: 'Chefornak',
+    state: 'Alaska',
+    country: 'United States',
+    postcode: '99561',
   },
   {
     address_id: 'addr-bill-and-ship-(bill)',
     customer_id: 'cust-1-with-normal-name-bill-and-ship-same',
-    "address_first_name": "Danielle",
-    "address_last_name": "Young",
-    "address_line_1": "55 Franklin Avenue",
-    "address_line_2": "Apt 718",
-    "city": "Charlotte",
-    "state": "North Carolina",
-    "country": 'United States',
-    "postcode": "28237"
+    address_first_name: 'Danielle',
+    address_last_name: 'Young',
+    address_line_1: '55 Franklin Avenue',
+    address_line_2: 'Apt 718',
+    city: 'Charlotte',
+    state: 'North Carolina',
+    country: 'United States',
+    postcode: '28237',
   },
   {
     address_id: 'addr-as-shipping-only',
     customer_id: 'cust-with-long-name-bill-and-ship-different',
-    "address_first_name": "Alexis",
-    "address_last_name": "Rogers",
-    "address_line_1": "70428 Court Street",
-    "address_line_2": "Unit 151",
-    "city": "Wilmington",
-    "state": "Delaware",
-    "country": 'United States',
-    "postcode": "19891"
+    address_first_name: 'Alexis',
+    address_last_name: 'Rogers',
+    address_line_1: '70428 Court Street',
+    address_line_2: 'Unit 151',
+    city: 'Wilmington',
+    state: 'Delaware',
+    country: 'United States',
+    postcode: '19891',
   },
   {
     address_id: 'addr-as-billing-only',
     customer_id: 'cust-with-long-name-bill-and-ship-different',
-    "address_first_name": "Alexis",
-    "address_last_name": "Rogers",
-    "address_line_1": "70428 Court Street",
-    "address_line_2": "Unit 151",
-    "city": "Wilmington",
-    "state": "Delaware",
-    "country": 'United States',
-    "postcode": "19891"
+    address_first_name: 'Alexis',
+    address_last_name: 'Rogers',
+    address_line_1: '70428 Court Street',
+    address_line_2: 'Unit 151',
+    city: 'Wilmington',
+    state: 'Delaware',
+    country: 'United States',
+    postcode: '19891',
   },
   {
     address_id: 'addr1-normal-(ship)',
     customer_id: 'cust-2-with-normal-name-bill-and-ship-same',
-    "address_first_name": "Kyle",
-    "address_last_name": "Carter",
-    "address_line_1": "85 Mulberry Street",
-    "address_line_2": "",
-    "city": "Glen",
-    "state": "Montana",
-    "country": 'United States',
-    "postcode": "59732"
+    address_first_name: 'Kyle',
+    address_last_name: 'Carter',
+    address_line_1: '85 Mulberry Street',
+    address_line_2: '',
+    city: 'Glen',
+    state: 'Montana',
+    country: 'United States',
+    postcode: '59732',
   },
   {
     address_id: 'addr1-normal-(bill)',
     customer_id: 'cust-2-with-normal-name-bill-and-ship-same',
-    "address_first_name": "John",
-    "address_last_name": "Ross",
-    "address_line_1": "878 Oak Street",
-    "address_line_2": "",
-    "city": "Tacoma",
-    "state": "Washington",
-    "country": 'United States',
-    "postcode": "98418"
+    address_first_name: 'John',
+    address_last_name: 'Ross',
+    address_line_1: '878 Oak Street',
+    address_line_2: '',
+    city: 'Tacoma',
+    state: 'Washington',
+    country: 'United States',
+    postcode: '98418',
   },
   {
     address_id: 'addr-with-long-fields-bill-and-ship-(ship)',
@@ -394,7 +421,7 @@ const addresses = [
     address_line_2: 'Addr Line 2 also long sometimes, but how long',
     city: 'City Name Here Long',
     state: 'State Name Long',
-    "country": 'United States',
+    country: 'United States',
     postcode: 'Postcode',
   },
   {
@@ -403,36 +430,36 @@ const addresses = [
       'cust-with-double-barrelled-name-bill-and-ship-different-no-phonenumber',
     address_first_name: 'Magnus',
     address_last_name: 'Magnusson',
-    "address_line_1": "12 Prospect Street",
-    "address_line_2": "",
-    "city": "Boston",
-    "state": "Massachusetts",
-    "country": 'United States',
-    "postcode": "02103"
+    address_line_1: '12 Prospect Street',
+    address_line_2: '',
+    city: 'Boston',
+    state: 'Massachusetts',
+    country: 'United States',
+    postcode: '02103',
   },
   {
     address_id: 'addr2-normal-(ship)',
     customer_id: 'cust-1-with-normal-name-bill-and-ship-same',
-    "address_first_name": "Amanda",
-    "address_last_name": "Ross",
-    "address_line_1": "1062 Primrose Lane",
-    "address_line_2": "",
-    "city": "Hainesport",
-    "state": "New Jersey",
-    "country": 'United States',
-    "postcode": "08036"
+    address_first_name: 'Amanda',
+    address_last_name: 'Ross',
+    address_line_1: '1062 Primrose Lane',
+    address_line_2: '',
+    city: 'Hainesport',
+    state: 'New Jersey',
+    country: 'United States',
+    postcode: '08036',
   },
   {
     address_id: 'addr2-normal-(bill)',
     customer_id: 'cust-1-with-normal-name-bill-and-ship-same',
-    "address_first_name": "Amanda",
-    "address_last_name": "Ross",
-    "address_line_1": "1062 Primrose Lane",
-    "address_line_2": "",
-    "city": "Hainesport",
-    "state": "New Jersey",
-    "country": 'United States',
-    "postcode": "08036"
+    address_first_name: 'Amanda',
+    address_last_name: 'Ross',
+    address_line_1: '1062 Primrose Lane',
+    address_line_2: '',
+    city: 'Hainesport',
+    state: 'New Jersey',
+    country: 'United States',
+    postcode: '08036',
   },
 ];
 
@@ -590,9 +617,7 @@ const orders = [
     bill_address_id: 'addr2-normal-(bill)',
     ship_address_id: 'addr2-normal-(ship)',
     products: {
-      connect: [
-        { product_id: 'prd-w-sml-dtls-and-0s-no-img' },
-      ],
+      connect: [{ product_id: 'prd-w-sml-dtls-and-0s-no-img' }],
     },
     order_details: [
       {
