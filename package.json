@@ -27,6 +27,7 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-select": "^1.2.1",
+    "chart.js": "^4.2.1",
     "dotenv-cli": "^7.1.0",
     "next-cloudinary": "^4.0.1",
     "react-chartjs-2": "^5.2.0",
