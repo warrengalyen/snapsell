@@ -67,6 +67,11 @@ const storeFronts = [
       'Here is a short description to describe my amazing store. I hope you like my products and buy many of them because they are amazing quality at low, low prices',
     store_logo: imageData.teapotsLogo,
     store_hero_image: imageData.teapotHero,
+    global_styles: JSON.stringify([
+      { type: 'primaryColor', selected: '#e81a2a' },
+      { type: 'secondaryColor', selected: '#131a3d' },
+      { type: 'saleActive', selected: 'false' },
+    ]),
   },
   { storefront_id: 'storefront-with-logo-with-hero-normal desc',
     store_id: 'nice-mvp-store',
