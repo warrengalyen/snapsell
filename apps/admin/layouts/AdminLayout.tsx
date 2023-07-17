@@ -201,7 +201,7 @@ export default function AdminLayout({
             </div>
           </div>
         </nav>
-        <div className="m-4 w-[95%]">{children}</div>
+        <div className="overflow-scroll p-5 w-[95%]">{children}</div>
       </div>
     </>
   );
