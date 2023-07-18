@@ -15,7 +15,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: 'http://localhost:3001',
+        destination: 'http://www.mechanikadesign.com/snapsell/admin',
         permanent: true,
         basePath: false,
       },
