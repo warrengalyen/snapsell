@@ -215,6 +215,54 @@ const imageData = {
     },
   ],
 
+  appleImage: [
+    {
+      id: 'appleimg1',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689696954/apple2_splvhj.jpg',
+      alt: 'green apple',
+    },
+  ],
+
+  xboxImage: [
+    {
+      id: 'xboximg1',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689696955/xbox_fwjkpj.jpg',
+      alt: 'xbox console',
+    },
+  ],
+
+  keyboard1Image: [
+    {
+      id: 'kbimg1',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697595/keyboard2_vyihmi.webp',
+      alt: 'black keyboard',
+    },
+  ],
+
+  keyboard2Image: [
+    {
+      id: 'kbimg2',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697595/keyboard_csh7oy.jpg',
+      alt: 'white keyboard',
+    },
+  ],
+
+  keyboard3Image: [
+    {
+      id: 'kbimg3',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697593/keyboard3_mcbter.webp',
+      alt: 'grey keyboard',
+    },
+  ],
+
+  keyboard4Image: [
+    {
+      id: 'kbimg4',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697594/keyboard4_deetp5.jpg',
+      alt: 'curvy keyboard',
+    },
+  ],
+
   teapotHero: {
     id: 'teapotStoreHero',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111670/teapots-splash_vagrhv.jpg',
@@ -243,6 +291,18 @@ const imageData = {
     id: 'storeheroimg3',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111676/apple3_xqy20h.png',
     alt: 'Lots of multi colored apples',
+  },
+
+  elecEmpLogo: {
+    id: 'storelogoimg4',
+    src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697133/elecemplogo_qizerk.jpg',
+    alt: 'Electronics logo',
+  },
+
+  elecEmpHero: {
+    id: 'storeheroimg4',
+    src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689697135/elec-emp_yabktt.jpg',
+    alt: 'various electronic goods',
   },
 
   toysNsocksLogo: {
