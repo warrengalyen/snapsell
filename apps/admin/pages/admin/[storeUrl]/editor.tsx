@@ -127,7 +127,10 @@ function Editor() {
       supportEmail: storeformInputs.supportEmail,
       storeHeroImage: storeformInputs.storeHeroImage,
       storeLogo: storeformInputs.storeLogo,
-      globalStyles: JSON.stringify(storeformInputs.globalStyles)
+      globalStyles:
+        storeformInputs.globalStyles === ''
+          ? null
+          : JSON.stringify(storeformInputs.globalStyles),
     };
     postStoreformInputs.mutate(storeformInputToPost);
   }
@@ -165,14 +168,12 @@ function Editor() {
 
   return !isEditing ? (
     <>
-      <div className="flex flex-col w-[100%] h-[calc(96vh-48px)]">
+      <div className="flex flex-col w-[100%] h-[calc(96vh-48px)] gap-y-10">
         <div className="flex flex-row w-[100%] justify-between">
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-5">
             <Heading title="Store Editor" type="h1" />
-            <div className="h-10"></div>
-            <Heading title="Details" type="h2" />
           </div>
-          <div className="flex">
+          <div className="flex ">
             <Button
               size="default"
               appearance="primary"
@@ -183,40 +184,54 @@ function Editor() {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-1 grid-rows-[repeat(5,0.5fr_minmax(1.5fr_auto)] w-[98%] gap-5 gap-x-10 sm:grid-cols-[0.7fr_1.3fr] sm:grid-rows-[0.3fr_0.3fr_0.3fr_1.5fr_2.6fr] p-4 h-full ">
-          <Heading title="Store Name:" type="h3" />
-          <div className="">{storeformInputs.storeName}</div>
-          <Heading title="Support Email:" type="h3" />
-          <div className="">{storeformInputs.supportEmail}</div>
-          <Heading title="Store Homepage Welcome Text:" type="h3" />
-          <div className="">{storeformInputs.storeDescription}</div>
-          <Heading title="Store Logo:" type="h3" />
-          <img
-            src={storeformInputs.storeLogo.src}
-            className="w-[150px] h-[150px] object-contain border border-gray-300"
-          ></img>
-          <Heading title="Store Homepage Main Image:" type="h3" />
-          <img
-            src={storeformInputs.storeHeroImage.src}
-            className="object-contain h-[250px] w-[350px] border border-gray-300"
-          ></img>
-          <Heading title="Store Theme:" type="h3" />
-          <ThemeThumbnail getSelected={getSelected} />
+        <Heading title={`Details for ${storeformInputs.storeName}`} type="h2" />
+        <div className="flex flex-col w-full gap-5 ">
+          <div className="flex flex-row gap-40">
+            <div className="flex flex-col gap-10">
+              <Heading title="Store Logo:" type="h4" />
+              <img
+                src={storeformInputs.storeLogo.src}
+                className=" w-[150px] h-[150px] object-contain object-top "
+              ></img>
+            </div>
+            <div className="flex flex-col gap-10">
+              <Heading title="Store Homepage Main Image:" type="h4" />
+              <img
+                src={storeformInputs.storeHeroImage.src}
+                className="rounded object-contain object-top h-[150px] w-[250px]"
+              ></img>
+            </div>
+            <div className="flex flex-col gap-10">
+              <Heading title="Store Theme:" type="h4" />
+              <ThemeThumbnail getSelected={getSelected} />
+            </div>
+          </div>
+          <div>
+            <Heading title="Store Name:" type="h4" />
+            <div>{storeformInputs.storeName}</div>
+          </div>
+          <div>
+            <Heading title="Support Email:" type="h4" />
+            <div className="">{storeformInputs.supportEmail}</div>
+          </div>
+          <div>
+            <Heading title="Store Homepage Welcome Text:" type="h4" />
+            <div className="">{storeformInputs.storeDescription}</div>
+          </div>
         </div>
       </div>
     </>
   ) : (
     <>
-      <div className="flex flex-col w-[calc(90vw-50px)] h-[calc(96vh-48px)]">
+      <div className="flex flex-col w-[100%] h-[calc(96vh-48px)] gap-y-6">
         <div className="flex flex-row w-full justify-between">
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <Heading title="Store Editor" type="h3" />
-            <Heading title="Edit" type="h4" />
           </div>
-          <div className="flex">
+          <div className="flex gap-x-2">
             <Button
               size="default"
-              appearance="destructive"
+              appearance="snapYellow"
               type="button"
               onClick={cancel}
             >
@@ -241,7 +256,7 @@ function Editor() {
               state={storeformInputs}
               showLabel={true}
               setState={setStoreFormInputs}
-              direction="row"
+              direction="column"
             />
           </div>
           <div className="flex flex-row w-full">
@@ -252,7 +267,7 @@ function Editor() {
               showLabel={true}
               state={storeformInputs}
               setState={setStoreFormInputs}
-              direction="row"
+              direction="column"
             />
           </div>
           <div className="flex flex-row w-full">
@@ -261,110 +276,113 @@ function Editor() {
               id="storeDescription"
               state={storeformInputs}
               setState={setStoreFormInputs}
-              direction="row"
+              direction="column"
             />
           </div>
-          <div className="flex flex-row items-center w-full">
+
+          <div className="flex flex-col items-left w-full ">
             <label
               htmlFor="fileUpload"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-48"
             >
               Store Logo
             </label>
-            <div className="m-1 w-full flex border rounded-md border-slate-300 py-2 px-3 ">
+            <div className="m-1 w-full flex border rounded-md border-slate-300 py-2 px-3 justify-between">
               <img
                 src={storeformInputs.storeLogo.src}
-                className="w-[100px]"
+                className="w-[150px]"
               ></img>
               <div className="flex items-center">
                 <FileUpload id="fileUpload" onChangeEvent={handleLogoUpload} />
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center w-full">
+          <div className="flex flex-col items-left w-full">
             <label
               htmlFor="fileUpload"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-48 pr-4"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-full pr-4"
             >
               Store Landing Page Hero Image
             </label>
-            <div className="m-1 w-full flex border rounded-md border-slate-300 py-2 px-3 ">
+            <div className="m-1 w-full flex border rounded-md border-slate-300 py-2 px-3 justify-between">
               <img
                 src={storeformInputs.storeHeroImage.src}
-                className="w-[100px]"
+                className="w-[250px]"
               ></img>
               <div className="flex items-center">
                 <FileUpload id="fileUpload" onChangeEvent={handleHeroUpload} />
               </div>
             </div>
           </div>
+          <div className='w-full'>
+            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 pr-4">
+              Theme Colors
+            </label>
+            <div className="flex p-4 border justify-start items-center border-slate-300 rounded-md w-full mt-1 gap-4">
+              <ThemeThumbnail getSelected={getSelected} />
 
-          <div className="flex flex-row w-full">
-            <label
-              htmlFor="primaryColor"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-48 pr-4"
-            >
-              Primary Theme Color
-            </label>
-            <div className="w-full ml-1">
-              <input
-                id="primaryColor"
-                type="color"
-                value={getSelected('primaryColor') ?? '#ffffff'}
-                onChange={(e) => {
-                  setStoreFormInputs((prev) => {
-                    const temp = storeformInputs.globalStyles.filter(
-                      (item: any) => item.type !== 'primaryColor'
-                    );
-                    return {
-                      ...prev,
-                      globalStyles: [
-                        ...temp,
-                        {
-                          type: 'primaryColor',
-                          selected: e.target.value,
-                        },
-                      ],
-                    };
-                  });
-                }}
-              />
+              <div className="flex flex-col gap-3">
+                <label
+                  htmlFor="primaryColor"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 pr-4"
+                >
+                  Pick Primary Here
+                </label>
+                <input
+                  id="primaryColor"
+                  type="color"
+                  value={getSelected('primaryColor') ?? '#ffffff'}
+                  onChange={(e) => {
+                    setStoreFormInputs((prev) => {
+                      const temp = storeformInputs.globalStyles.filter(
+                        (item: any) => item.type !== 'primaryColor'
+                      );
+                      return {
+                        ...prev,
+                        globalStyles: [
+                          ...temp,
+                          {
+                            type: 'primaryColor',
+                            selected: e.target.value,
+                          },
+                        ],
+                      };
+                    });
+                  }}
+                />
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="secondaryColor"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-48 pr-4"
+                  >
+                    Pick Secondary Here
+                  </label>
+
+                  <input
+                    id="secondaryColor"
+                    type="color"
+                    value={getSelected('secondaryColor') ?? 'rgba(31, 41, 55)'}
+                    onChange={(e) => {
+                      setStoreFormInputs((prev) => {
+                        const temp = storeformInputs.globalStyles.filter(
+                          (item: any) => item.type !== 'secondaryColor'
+                        );
+                        return {
+                          ...prev,
+                          globalStyles: [
+                            ...temp,
+                            {
+                              type: 'secondaryColor',
+                              selected: e.target.value,
+                            },
+                          ],
+                        };
+                      });
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-row w-full">
-            <label
-              htmlFor="secondaryColor"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 m-1 w-48 pr-4"
-            >
-              Secondary Theme Color
-            </label>
-            <div className="w-full ml-1">
-              <input
-                id="secondaryColor"
-                type="color"
-                value={getSelected('secondaryColor') ?? 'rgba(31, 41, 55)'}
-                onChange={(e) => {
-                  setStoreFormInputs((prev) => {
-                    const temp = storeformInputs.globalStyles.filter(
-                      (item: any) => item.type !== 'secondaryColor'
-                    );
-                    return {
-                      ...prev,
-                      globalStyles: [
-                        ...temp,
-                        {
-                          type: 'secondaryColor',
-                          selected: e.target.value,
-                        },
-                      ],
-                    };
-                  });
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-row w-full">
-            <ThemeThumbnail getSelected={getSelected} />
           </div>
         </div>
       </div>
@@ -382,7 +400,7 @@ export default function () {
 
 function ThemeThumbnail({ getSelected }: { getSelected: (color:string)=>string }) {
   return (
-    <div className="flex flex-col h-32 w-48 border border-gray-300 mb-8">
+    <div className="flex flex-col h-32 w-48 border border-gray-300">
       <div
         className="h-4"
         style={{
