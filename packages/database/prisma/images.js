@@ -263,6 +263,100 @@ const imageData = {
     },
   ],
 
+  tailwindImage: [
+    {
+      id: 'tailwindimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793973/Tailwind_1_vzwv2u.png',
+      alt: 'tailwind',
+    },
+  ],
+
+  turboRepoImage: [
+    {
+      id: 'turboRepoimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/Turborepo_b0eyb2.png',
+      alt: 'turbo repo',
+    },
+  ],
+
+  tanstackImage: [
+    {
+      id: 'tanstackimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/Tanstack_Query_j9bgjm.png',
+      alt: 'tan stack query',
+    },
+  ],
+
+  nextJSImage: [
+    {
+      id: 'nextJSimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793971/NextJS_b0jame.png',
+      alt: 'next js',
+    },
+  ],
+
+  authjsImage: [
+    {
+      id: 'authjsimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/Authjs_dkjy81.png',
+      alt: 'auth JS',
+    },
+  ],
+
+  stripeImage: [
+    {
+      id: 'stripeimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/Stripe_wruugx.png',
+      alt: 'stripe',
+    },
+  ],
+  typescriptImage: [
+    {
+      id: 'typescriptimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793973/Typescript_eeqffd.png',
+      alt: 'type script',
+    },
+  ],
+
+  cloudinaryImage: [
+    {
+      id: 'cloudinaryimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/Cloudinary_ozkmxs.png',
+      alt: 'cloudinary',
+    },
+  ],
+  postgreSQLImage: [
+    {
+      id: 'postgreSQLimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689793972/PostgreSQL_fveuva.png',
+      alt: 'postgreSQL',
+    },
+  ],
+
+  prismaImage: [
+    {
+      id: 'prismaImg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689794138/Prisma_chml2z.png',
+      alt: 'prisma',
+    },
+  ],
+  reactHotToastImage: [
+    {
+      id: 'reactHotToastImg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689794138/React_Hot_Toast_tnk7ng.png',
+      alt: 'react hot toast',
+    },
+  ],
+
+  cypressImage: [
+    {
+      id: 'cypressimg',
+      src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689794138/Cypress_nqvcah.png',
+      alt: 'cypress',
+    },
+  ],
+
+
   teapotHero: {
     id: 'teapotStoreHero',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111670/teapots-splash_vagrhv.jpg',
