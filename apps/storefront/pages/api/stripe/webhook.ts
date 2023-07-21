@@ -47,6 +47,8 @@ export default async function handler(
       console.log(JSON.stringify(req.body, null, 2));
       return res.status(500).json({ successfulPayment: false });
     }
+    console.log(req.body);
+    console.log(JSON.stringify(req.body, null, 2));
 
     const store = await prisma.store.findUnique({
       where: {
