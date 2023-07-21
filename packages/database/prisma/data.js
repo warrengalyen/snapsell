@@ -31,7 +31,7 @@ const stores = [
   {
     store_id: 'store-1-product-with-storefront-but-lacking-detail',
     store_owner_id: 'user-with-1-store',
-    store_name: 'Guns & Ammo',
+    store_name: 'Tooth Brush Central',
     store_url: 'yippie-kay-yay',
   },
   {
@@ -55,13 +55,13 @@ const stores = [
   {
     store_id: 'store-6-products-with-storefront-detail',
     store_owner_id: 'user-with-3-stores',
-    store_name: 'Electronics Emporium',
+    store_name: 'Keyboards on Tap',
     store_url: 'elec-emp',
   },
   {
     store_id: 'nice-mvp-store',
     store_owner_id: 'user-with-3-stores',
-    store_name: 'Toothbrush Central',
+    store_name: 'Tech Stack',
     store_url: 'toothbrushes-etc',
   },
 ];
@@ -76,9 +76,9 @@ const storeFronts = [
     store_logo: imageData.teapotLogo,
     store_hero_image: imageData.teapotHero,
     global_styles: JSON.stringify([
-      { type: 'primaryColor', selected: '#e81a2a' },
-      { type: 'secondaryColor', selected: '#131a3d' },
       { type: 'saleActive', selected: 'false' },
+      { type: 'primaryColor', selected: '#ffffff' },
+      { type: 'secondaryColor', selected: '#111836' },
     ]),
   },
   {
@@ -86,13 +86,23 @@ const storeFronts = [
     store_id: 'nice-mvp-store',
     support_email: 'no-emails-please@go-away.co.uk',
     store_description:
-      'We have long delivery times so you should probably shop elsewhere...',
+      'Roll up, roll up, get your Tech Stack here....bargain prices for quality goods!',
     store_logo: imageData.toothbrushLogo,
     store_hero_image: imageData.toothbrushHero,
+    global_styles: JSON.stringify([
+      { type: 'saleActive', selected: 'false' },
+      { type: 'primaryColor', selected: '#ffffff' },
+      { type: 'secondaryColor', selected: '#111836' },
+    ]),
   },
   {
     storefront_id: 'storefront-with-no-logo-no-hero-no-desc-no-email',
     store_id: 'store-1-product-with-storefront-but-lacking-detail',
+    global_styles: JSON.stringify([
+      { type: 'saleActive', selected: 'false' },
+      { type: 'primaryColor', selected: '#ffffff' },
+      { type: 'secondaryColor', selected: '#111836' },
+    ]),
   },
   {
     storefront_id: 'storefront-with-logo-no-hero-normal desc',
@@ -101,15 +111,28 @@ const storeFronts = [
     store_description:
       'Well we have two products: toys or socks and that is it - enjoy',
     store_logo: imageData.toysNsocksLogo,
+    global_styles: JSON.stringify([
+      { type: 'saleActive', selected: 'false' },
+      { type: 'primaryColor', selected: '#ffffff' },
+      { type: 'secondaryColor', selected: '#111836' },
+    ]),
   },
   {
     storefront_id: 'storefront2-with-logo-with-hero-normal-desc',
     store_id: 'store-6-products-with-storefront-detail',
     support_email: 'nothingElectronic@everBreaks.com',
     store_description:
-      'Quality electronics at bargain prices, consoles, TVs, radios, laptops, premium goods guaranteed!',
+      'Quality keyboards for all your ninja programmer coding needs, type out that code faster than ever! We also sell other electronic goods at bargain prices!',
     store_hero_image: imageData.elecEmpHero,
     store_logo: imageData.elecEmpLogo,
+    global_styles: JSON.stringify([
+      { type: 'saleActive', selected: 'false' },
+      [
+        { type: 'saleActive', selected: 'false' },
+        { type: 'secondaryColor', selected: '#00ccb4' },
+        { type: 'primaryColor', selected: '#ededed' },
+      ],
+    ]),
   },
   {
     storefront_id: 'storefront-no-logo-with-hero-normal-desc',
@@ -118,6 +141,11 @@ const storeFronts = [
     store_description:
       'An apple a day keeps the doctor away, but too many and the dentist will come calling',
     store_hero_image: imageData.fruitNvegHero,
+    global_styles: JSON.stringify([
+      { type: 'saleActive', selected: 'false' },
+      { type: 'primaryColor', selected: '#ffffff' },
+      { type: 'secondaryColor', selected: '#111836' },
+    ]),
   },
 ];
 
@@ -125,13 +153,13 @@ const products = [
   {
     product_id: 'prd-w-lng-dtls-and-big-nums',
     store_id: 'store-10-products-with-storefront-detail',
-    SKU: 'SKU-17937494797934',
+    SKU: 'SKU-1793',
     product_name:
-      'product1 - with a rather long name  just to see how this looks when displayed',
+      'Tall Teapot',
     inventory_qty: 123456,
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    product_price: 1234567,
+      "A really tall teapot to make lots of tea when you are standing up",
+    product_price: 635.56,
     product_name_slug:
       'product-name-slug-which-is-also-rather-long-is-it-too-long-do-not-know-yet',
     product_images: imageData.longTeapotImages,
@@ -139,22 +167,23 @@ const products = [
   {
     product_id: 'prd-w-sml-dtls-and-0s-no-img',
     store_id: 'store-10-products-with-storefront-detail',
-    SKU: '',
-    product_name: 'potato',
+    SKU: '5435',
+    product_name: 'old product',
     inventory_qty: 0,
-    description: 'tiny description',
+    description: 'discontinued',
     product_price: 0,
     product_name_slug: 'slug',
+    is_active: false
   },
   {
     product_id: 'prd-w-neg-inv-and-price',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '456-997',
-    product_name: 'Negative Teapot',
-    inventory_qty: -2,
+    product_name: 'Very Black Teapot',
+    inventory_qty: 0,
     description:
-      "This teapot shouldn't exist because it is negative - it's like there's a hole in the universe",
-    product_price: -1,
+      "This teapot is very black, and is mainly only for making tea during the day",
+    product_price: 10,
     product_name_slug: 'negative-teapot',
     product_images: imageData.negativeTeapotImages,
   },
@@ -162,9 +191,9 @@ const products = [
     product_id: 'prd1-w-nrml-dtls-1-img',
     store_id: 'store-10-products-with-storefront-detail',
     SKU: '868434',
-    product_name: 'should we correct lowercase first letter?',
+    product_name: 'Tiny Teapot',
     inventory_qty: 10,
-    description: 'same here, should we correct lowercase first letter?',
+    description: 'When you only need a little bit of tea to drink - soloists only',
     product_price: 17.99,
     product_name_slug: 'lowercase-teapot',
     product_images: imageData.tinyTeapotImages,
