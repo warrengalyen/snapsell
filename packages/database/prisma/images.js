@@ -3,50 +3,50 @@ const imageData = {
     {
       id: 'longTeapot-img1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111671/teapot-long_rktw8f.jpg',
-      alt: 'nice image of a lovely product maybe',
+      alt: 'tall clay teapot',
     },
     {
       id: 'longTeapot-img2',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111672/teapot-long2_dwn7cf.jpg',
-      alt: 'seriously, it is a lovely product',
+      alt: 'tall clay teapot',
     },
     {
       id: 'longTeapot-img3',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111674/teapot-long3_anksu1.jpg',
-      alt: 'long teapot',
+      alt: 'tall clay teapot',
     },
     {
       id: 'longTeapot-img4',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111674/teapot-long4_jokxas.jpg',
-      alt: 'tall teapot',
+      alt: 'tall clay teapot',
     },
   ],
   negativeTeapotImages: [
     {
       id: 'negativeTeapot-img1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111669/teapot-negative_p9npbl.avif',
-      alt: 'missing teapot',
+      alt: 'black teapot',
     },
   ],
   tinyTeapotImages: [
     {
       id: 'tiny-teapot-img1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111670/teapot-tiny_nlcv4e.webp',
-      alt: 'lowercase teapot',
+      alt: 'small teapot',
     },
   ],
   quirkyTeapotImages: [
     {
       id: 'quirky-teapot-img1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111669/teapot6_tj0fv3.jpg',
-      alt: 'interesting teapot',
+      alt: 'teapot shaped like an aga oven',
     },
   ],
   seeThroughTeapotImages: [
     {
       id: 'seeThroughimg1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111667/teapot_joia6v.webp',
-      alt: 'you can see the tea!',
+      alt: 'glass teapot',
     },
     {
       id: 'seeThroughimg2',
@@ -70,7 +70,7 @@ const imageData = {
     {
       id: 'greenimg1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111668/teapot4_ep0x9w.jpg',
-      alt: 'green tea!',
+      alt: 'green teapot',
     },
     {
       id: 'greenimg2',
@@ -92,12 +92,12 @@ const imageData = {
     {
       id: 'blackTeapotimg2',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111668/teapot10_aqz4r0.webp',
-      alt: 'dark teapot',
+      alt: 'black teapot',
     },
     {
       id: 'blackTeapotimg3',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111669/teapot11_s8dcyy.jpg',
-      alt: 'not a white teapot',
+      alt: 'black teapot',
     },
     {
       id: 'blackTeapotimg4',
@@ -124,19 +124,19 @@ const imageData = {
     {
       id: 'megaTeapotimg4',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111677/teapot-giant4_oskkba.jpg',
-      alt: 'kaiju teapot',
+      alt: 'huge teapot',
     },
     {
       id: 'megaTeapotimg5',
       src: 'https://res.cloudinary.com/dcsuhlcmm/image/upload/v1679839607/teapot-giant5_sud5dn.jpg',
-      alt: 'giga teapot',
+      alt: 'huge teapot',
     },
   ],
   beachballImages: [
     {
       id: 'prod10img1',
       src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111676/beachball_rhgjzo.jpg',
-      alt: 'look at this beachball',
+      alt: 'beachball',
     },
     {
       id: 'prod10img2',
@@ -360,7 +360,7 @@ const imageData = {
   teapotHero: {
     id: 'teapotStoreHero',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111670/teapots-splash_vagrhv.jpg',
-    alt: 'So many teapots',
+    alt: 'three teapots',
   },
 
   teapotLogo: {
@@ -384,7 +384,7 @@ const imageData = {
   fruitNvegHero: {
     id: 'storeheroimg3',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111676/apple3_xqy20h.png',
-    alt: 'Lots of multi colored apples',
+    alt: 'Lots of green and red apples',
   },
 
   elecEmpLogo: {
@@ -396,13 +396,13 @@ const imageData = {
   elecEmpHero: {
     id: 'storeheroimg4',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689969354/vxim3v3divzgrqfdieow_hcobsa.webp',
-    alt: 'various electronic goods',
+    alt: 'three keyboards',
   },
 
   toysNsocksLogo: {
     id: 'storelogoimg3',
     src: 'https://res.cloudinary.com/duntk8rtj/image/upload/v1689111675/toyslogo_snx9ah.jpg',
-    alt: 'Toys and socks logo',
+    alt: 'Toys logo',
   },
 };
 module.exports = imageData
