@@ -92,12 +92,13 @@ export default function AdminLayout({
               </div>
             </div>
           </Link>
-          <div className="flex items-center ml-auto">
+          <div className="flex items-center">
             <SearchInputs />
           </div>
           <select
             id="stores"
             onChange={(e) => {
+              setCurrentStoreUrl(e.target.value);
               setCurrentStoreUrl(e.target.value);
               switch (helperGetUrl(router.pathname)) {
                 case 'dashboard':

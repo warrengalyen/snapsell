@@ -11,7 +11,7 @@ export { getServerSideProps };
 function Orders() {
   const router = useRouter();
   const storeUrl = router.query.storeUrl;
-  const { data: orders, isFetching }: UseQueryResult<Record<string, string>[]> =
+  const { data: orders, isFetching }: UseQueryResult<Record<string, any>[]> =
     useQuery({
       queryKey: ['order'],
       queryFn: () => fetch(`/api/orders/${storeUrl}`).then((res) => res.json()),

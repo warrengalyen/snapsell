@@ -28,7 +28,7 @@ export default function CartSlideOut() {
     cartItems,
     totalItemsInCart,
   }: { totalItemsInCart: () => number; cartItems: ProductType[] } =
-    useContext(CartContext);
+    useContext<any>(CartContext);
 
   return (
     <Sheet>

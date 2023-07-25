@@ -32,7 +32,7 @@ function Cart() {
     setCartItems: React.Dispatch<React.SetStateAction<ProductType[]>>;
     handleAddToCart: (product: ProductType, quantity: number) => number;
     handleUpdateCart: (product: ProductType, quantity: number) => number;
-  } = useContext(CartContext);
+  } = useContext<any>(CartContext);
 
   const {
     data: products,

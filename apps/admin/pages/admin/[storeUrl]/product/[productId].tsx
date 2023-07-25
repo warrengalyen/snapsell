@@ -1,7 +1,6 @@
 import AdminLayout from '../../../../layouts/AdminLayout';
 import Button from '../../../../components/Button';
 import Heading from '../../../../components/Heading';
-import Card from '../../../../components/Card';
 import InputWithLabel from '../../../../components/InputWithLabel';
 import Textarea from '../../../../components/Textarea';
 import { useEffect, useState } from 'react';
@@ -125,13 +124,13 @@ function ProductDetail() {
     <>
       <div className="flex w-[calc(90vw-70px)] h-[calc(96vh-48px)] flex-col ">
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+          <div className="flex flex-row justify-between h-6">
+            <Heading title={productInputs.item} type="h2"></Heading>
           <div className="text-red-500">
             <Heading
               title={productInputs.isActive ? '' : 'ITEM DEACTIVATED'}
               type="h2"
             ></Heading>
-            <div className='text-red-500' >
-              <Heading title={productInputs.isActive ? "" : "ITEM DEACTIVATED"} type="h1"></Heading>
             </div>
             <div className="flex justify-end">
               <Button
@@ -157,7 +156,7 @@ function ProductDetail() {
                 style={{ width: '100%' }}
               />
             </div>
-          <div className='h-40' >
+          <div className="h-40">
             <Textarea
               label="Description"
               id="description"

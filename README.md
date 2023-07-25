@@ -14,12 +14,19 @@ An eCommerce store builder, allowing users to a online store, manage products, c
 - Customized online store
 - Secure checkout (Stripe)
 
+## Set up .env files - (env-examples provided in relevant folders)
+
+- /packages/database
+- /apps/admin
+- /apps/storefront
+
 ## Installation
 `npm i` in root folder
 
 ## Running locally
 - App : `npm run dev`
 - Prisma Studio: `npx prisma studio` (in /packages/database)
+- Prisma Migrate : `npx prisma migrate dev` (in /packages/database)
 - Seed data : `npm run seed`(in /packages/database)
 
 ## Set up .env files - (env-examples provided in relevant folders)

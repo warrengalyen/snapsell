@@ -124,7 +124,7 @@ function ProductPage({ product }: { product: Product }) {
     handleAddToCart: (product: any, quantity: number) => void;
     getCartTotal: any;
     getProductQuantityInCart: any;
-  } = useContext(CartContext);
+  } = useContext<any>(CartContext);
 
   const [isInLoadingTime, setIsInLoadingTime] = useState(true);
 

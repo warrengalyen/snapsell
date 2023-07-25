@@ -10,7 +10,7 @@ export default function ProcessingOrder() {
   const {
     setCartItems,
   }: { setCartItems: React.Dispatch<React.SetStateAction<any>> } =
-    useContext(CartContext);
+    useContext<any>(CartContext);
   const [refetchQuantity, setRefetchQuantity] = useState(0);
 
   const {

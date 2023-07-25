@@ -16,7 +16,7 @@ export default function CartQuantityInput({
   }: {
     handleUpdateCart: (product: ProductType, updateByQuantity: number) => void;
     cartItems: ProductType[];
-  } = useContext(CartContext);
+  } = useContext<any>(CartContext);
 
   return (
     <input
