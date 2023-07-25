@@ -9,18 +9,15 @@ An eCommerce store builder, allowing users to a online store, manage products, c
 ## Features
 **[Admin]**
 - User authentication
-- Customize store logo, hero image, color theme
-- Show order list, order details
-- Search product
-- Add/Edit product detail
+- Theme customizer
+- Product editor
 
 **[Storefront]**
-- Show product list, product details
-- Add to cart
-- Checkout - payment
+- Customized online store
+- Secure checkout (Stripe)
 
 ## Installation
-`npm i` in root folders
+`npm i` in root folder
 
 ## Running locally
 - App : `npm run dev`
@@ -31,10 +28,6 @@ An eCommerce store builder, allowing users to a online store, manage products, c
 - /packages/database
 - /apps/admin
 - /apps/storefront
-
-## Icons & Components
-- https://heroicons.com : use this site to find icons if needed.
-- https://ui.shadcn.com/docs/primitives/accordion : component design convention
 
 ## Tech stack
 
