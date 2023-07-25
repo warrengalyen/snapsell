@@ -1,5 +1,3 @@
-import { JSXElementConstructor } from 'react';
-
 type Props = {
   title: string;
   icon: JSX.Element;
@@ -17,7 +15,7 @@ export default function DashboardCard({ title, icon, props, color }: Props) {
   };
   return (
     <div className="flex flex-col grid-rows-2 rounded-md shadow  h-48 w-60 md:h-64 md:w-96 overflow-hidden">
-      <div className="flex h-24 w-full bg-yellow-400 justify-center items-center text-center text-2xl">
+      <div className="flex h-24 w-full bg-blue-700 justify-center items-center text-center text-2xl text-white">
         {title}
       </div>
       <div className="h-48 grid grid-cols-2 place-items-center place-content-center border border-gray-200 border-t-0">

@@ -1,6 +1,7 @@
 import prisma from './prisma';
 
-export default async function prismaStrUrl(userId:string){
+export default async function prismaStrUrl(userId: string) {
+  console.log({ userId });
   const storeOwned = await prisma.user.findMany({
     where: {
       user_id: String(userId),
@@ -13,8 +14,8 @@ export default async function prismaStrUrl(userId:string){
       },
     },
   });
-  const prismaStoreUrl = storeOwned[0].store.map(strUrl=> {
-    return strUrl.store_url
-  })
-  return prismaStoreUrl
+  const prismaStoreUrl = storeOwned[0].store.map((strUrl) => {
+    return strUrl.store_url;
+  });
+  return prismaStoreUrl;
 }

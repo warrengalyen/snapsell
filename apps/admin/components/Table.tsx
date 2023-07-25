@@ -27,7 +27,7 @@ export default function Table({
   prependLink?: string;
 }) {
   return (
-    <div className="p-4 shadow overflow-y-auto rounded-lg">
+    <div className="p-4 shadow overflow-y-auto rounded-lg bg-gray-50">
       <table className="min-w-full table-fixed border-spacing-3">
         <tbody>
           <tr className="text-left">

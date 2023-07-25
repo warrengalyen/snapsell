@@ -2,21 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import Button from '../components/Button';
-
-const inter = Inter({ subsets: ['latin'] });
-
-const menuItems = [
-  {
-    id: 'Sign Up',
-    name: 'Sign Up',
-    href: '/sign-up',
-  },
-  {
-    id: 'Sign In',
-    name: 'Sign In',
-    href: '/sign-in',
-  },
-];
+import Heading from '../components/Heading';
 
 export default function Home() {
   return (
@@ -28,75 +14,39 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="h-[calc(100vh-0px)] relative overflow-hidden">
-        <div className="absolute top-2 right-2 z-20">
-          <Link href={`/auth/sign-in`}>
-            <Button size="xl" appearance="homepage" type="button">
-              My Account
-            </Button>
-          </Link>
-        </div>
-        <div className=" flex flex-col sm:flex-row sm:items-end mx-5  sm:mx-10 absolute z-20 top-[10%]  sm:font-normal text-white text-[2.1rem] sm:text-5xl lg:text-7xl 2xl:text-[5rem]">
+      <div className="bg-gray-100 min-h-screen w-full flex items-center justify-center flex-col">
+        <div className="flex flex-col sm:flex-row sm:items-end mx-5  sm:mx-10 absolute z-20 top-[10%]  sm:font-normal text-black text-[2.1rem] sm:text-5xl lg:text-7xl 2xl:text-[5rem]">
           <span className="sm:pb-3">Welcome to</span>
           <div className="flex">
             <img
               src={'/snapsell-black-square.png'}
-              alt="SnapSell"
-              className="w-12 sm:w-[100px] 2xl:w-[120px]  sm:pr-4 2xl:pr-2 mr-1 sm:ml-9 sm:mr-0"
+              alt="Hi Street"
+              className="w-12 sm:w-[120px] 2xl:w-[120px]  sm:pr-4 2xl:pr-2 mr-1 sm:ml-9 sm:mr-0"
             />
             <span className=" flex items-center text-5xl sm:text-6xl lg:text-8xl 2xl:text-9xl pb-2 sm:pb-0">
               SnapSell
             </span>
           </div>
         </div>
-        <h2 className="mx-5 sm:mx-10 absolute z-20 top-[27%] sm:top-[31%] 2xl:top-[27%] sm:text-2xl lg:text-3xl 2xl:text-4xl text-white ">
-          Probably the finest customizable storefront for your business
+        <h1 className="text-7xl font-bold text-center">
+          Ecommerce, made easy.
+        </h1>
+        <h2 className="text-4xl mt-2 mb-8">
+          Quickly and easily setup your own online store
         </h2>
-        <h2 className="mx-5 sm:mx-10 absolute z-[70] top-[52%] sm:top-[70%] 2xl:top-[65%] sm:text-xl lg:text-2xl 2xl:text-4xl text-white bg-opacity-50 bg-black p-4 w-[83%] sm:p-10 sm:w-3/6">
-          Fully customize your store with themes, taglines, images and more!
-        </h2>
-        <img
-          src={
-            'https://res.cloudinary.com/duntk8rtj/image/upload/v1689969911/GE23cTcUXww-unsplash_ztrgkc.jpg'
-          }
-          alt={'SnapSell'}
-          className="sm:w-[100vw] object-cover h-[100dvh]"
-        />
-        <div className="absolute top-[39%] sm:top-[45%] z-20 mx-5 sm:mx-10">
+        <div className="flex items-center justify-center gap-2">
+          <Link href={`/auth/sign-in`}>
+            <Button size="xl" appearance="primary" type="button">
+              Sign In
+            </Button>
+          </Link>
           <Link href={`/auth/sign-up`}>
-            <Button size="xxl" appearance="homepage" type="button">
-              Sign Up Now
+            <Button size="xl" appearance="outline" type="button">
+              Sign Up
             </Button>
           </Link>
         </div>
-        <div className="absolute top-0 bg-black bg-opacity-40 h-full w-full z-10"></div>
-        <p className="absolute bottom-0 text-white text-xs sm:text-base">
-          Photo by Viktor Forgacs on Unsplash
-        </p>
-        <img
-          src={
-            'https://res.cloudinary.com/duntk8rtj/image/upload/v1689970019/custom_product_itwo88.png'
-          }
-          alt={'red custom Store'}
-          className="w-[55vw] sm:w-[30vw] 3xl:w-[30vw] absolute bottom-[18vh]  right-[2vw]   z-40 border-black border hover:z-[99] hover:scale-150 hover:-translate-x-44 hover:-translate-y-44 ease-in-out duration-500"
-        />
-        <img
-          src={
-            'https://res.cloudinary.com/duntk8rtj/image/upload/v1689970018/custom_store_nwdyth.png'
-          }
-          alt={'green custom Store'}
-          className="w-[55vw] sm:w-[30vw] 3xl:w-[30vw] absolute bottom-[12vh]  right-[12vw] z-[60] border-black border hover:z-[99] hover:scale-150 hover:-translate-x-44 hover:-translate-y-44 ease-in-out duration-500"
-        />
-        <img
-          src={
-            'https://res.cloudinary.com/duntk8rtj/image/upload/v1689970017/custom_products_ingsun.png'
-          }
-          alt={'blue custom Store'}
-          className="w-[55vw] sm:w-[30vw] 3xl:w-[30vw] absolute right-[4vw]  bottom-[4vh]  z-[50] border-black border hover:z-[99] hover:scale-150 hover:-translate-x-44 hover:-translate-y-24 ease-in-out duration-500"
-        />
-        {/* <div className="z-20 h-0 w-0 bottom-0 right-0 absolute border-solid border-t-[0px] border-l-[370px] sm:border-l-[640px] border-b-[200px] sm:border-b-[400px] border-r-[0px] border-t-transparent border-l-transparent border-b-white border-r-transparent"></div> */}
       </div>
-      {/*<div className="h-[208px] bg-gray-800"></div>*/}
     </>
   );
 }

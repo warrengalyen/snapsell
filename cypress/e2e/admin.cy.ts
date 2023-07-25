@@ -44,7 +44,7 @@ describe('Successfully access authorized only pages', () => {
   });
 
   it('successfully retrieve revenue', () => {
-    cy.get('div').contains('$').wait;
+    cy.get('div').contains('£').wait;
     cy.should('contain', Number);
   });
   it('successfully retrieve orders and customers', () => {

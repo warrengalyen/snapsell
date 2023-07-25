@@ -649,7 +649,7 @@ const addresses = [
     address_line_1: 'Addr Line 1 making this long, longer, longest',
     address_line_2: 'Addr Line 2 also long sometimes, but how long',
     city: 'City Name Here Long',
-    state: 'State Name Long',
+    state: 'County Name Long',
     country: 'United States',
     postcode: 'Postcode',
   },

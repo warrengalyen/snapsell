@@ -9,11 +9,11 @@ const buttonVariants = {
   homepage: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:text-black',
   homepageSubtle: 'bg-black text-white hover:bg-blue-800',
   destructive: 'bg-red-500 text-white hover:bg-red-600',
-  outline: 'bg-transparent border border-slate-200 hover:bg-slate-100',
+  outline: 'bg-transparent border border-slate-800 hover:bg-slate-100 text-slate-900',
   subtle: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
   ghost: 'bg-transparent hover:bg-slate-100 data-[state=open]:bg-transparent',
   link: 'bg-transparent underline-offset-4 hover:underline text-slate-900  hover:bg-transparent',
-  snapYellow: 'bg-snap-yellow text-black hover:bg-snap-yellow-hover',
+  snapYellow: 'bg-slate-200 text-slate-900 ',
 };
 
 const buttonSizes = {
