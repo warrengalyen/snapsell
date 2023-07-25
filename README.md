@@ -1,10 +1,8 @@
 ## SnapSell
+
 An eCommerce store builder, allowing users to a online store, manage products, customize their storefront and accept payments for orders.
 
-<p align="center">
-  <img src="screenshots/splash.jpg" alt="slash screen">
-</p>
-<br/>
+![Dashboard](/screenshots/dashboard.jpg)
 
 ## Features
 **[Admin]**
