@@ -6,26 +6,29 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  // url      = env("DATABASE_URL")
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
 // Necessary for Next auth
 model Account {
-    id                String  @id @default(cuid())
-    userId            String
-    type              String
-    provider          String
-    providerAccountId String
-    refresh_token     String? 
-    access_token      String? 
-    expires_at        Int?
-    token_type        String?
-    scope             String?
-    id_token          String? 
-    session_state     String?
-    user              User    @relation(fields: [id], references: [user_id], onDelete: Cascade)
-    @@unique([provider, providerAccountId])
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [id], references: [user_id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
 
 model Session {
@@ -51,10 +54,11 @@ model User {
 }
 
 model VerificationToken {
-    identifier String
-    token      String   @unique
-    expires    DateTime
-    @@unique([identifier, token])
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Store {
@@ -71,11 +75,11 @@ model Store {
 }
 
 model Order {
-  order_id        String   @id @default(cuid()) @unique
-  store   Store   @relation(fields: [store_id], references: [store_id])
+  order_id              String    @id @unique @default(cuid())
+  store                 Store     @relation(fields: [store_id], references: [store_id])
   store_id              String
   customer_id           String
-  friendly_order_number   Int 
+  friendly_order_number Int
   bill_address          Address   @relation(fields: [bill_address_id], references: [address_id], name: "bill_address_id")
   ship_address          Address   @relation(fields: [ship_address_id], references: [address_id], name: "ship_address_id")
   bill_address_id       String    @unique
@@ -85,7 +89,7 @@ model Order {
   created_at            DateTime  @default(now())
   total_order_cost      Decimal
   customer              Customer  @relation(fields: [customer_id], references: [customer_id])
-  payment_id    String?
+  payment_id            String?
 }
 
 model Product {
@@ -109,11 +113,11 @@ model Product {
 }
 
 model Customer {
-    customer_id            String    @id @default(cuid()) @unique
+  customer_id         String            @id @unique @default(cuid())
   customer_first_name String
   customer_last_name  String
   customer_email      String
-    phone_number           String?
+  phone_number        String?
   customer_account    Customer_account?
   addresses           Address[]
   store               Store             @relation(fields: [store_id], references: [store_id])
@@ -123,14 +127,14 @@ model Customer {
 }
 
 model Customer_account {
-    customer_account_id                String    @id @default(cuid()) @unique
+  customer_account_id            String   @id @unique @default(cuid())
   customer_account_password_hash String
   customer_id                    String   @unique
   customer                       Customer @relation(fields: [customer_id], references: [customer_id])
 }
 
 model Address {
-  address_id    	    String   @id @default(cuid()) @unique
+  address_id         String    @id @unique @default(cuid())
   address_first_name String
   address_last_name  String
   address_line_1     String
@@ -146,7 +150,7 @@ model Address {
 }
 
 model Storefront {
-  storefront_id         String  @id @default(cuid()) @unique
+  storefront_id     String  @id @unique @default(cuid())
   global_styles     String?
   blocks            String?
   store_id          String  @unique
